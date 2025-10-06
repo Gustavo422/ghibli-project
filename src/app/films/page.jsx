@@ -1,0 +1,63 @@
+import { Titles, Images, Description } from "@/lib/api";
+import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardAction,
+} from "@/components/FilmCard";
+
+export default async function Page() {
+  const titles = await Titles();
+  const images = await Images();
+  const description = await Description();
+  return (
+    <main className="flex flex-col items-center justify-center p-6">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+        Filmes Do Studio Ghibli
+      </h1>
+      <p className="mt-2 text-xl sm:text-2xl md:text-3xl text-white">
+        Lista com todos os filmes do Studio Ghibli
+      </p>
+      <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 mt-10 gap-4 ">
+        {titles.map((title, i) => (
+          <Card key={i} className="bg-slate-950 p-0 rounded-xl">
+            <CardContent className="relative w-full p-0">
+              <Image
+                src={images[i]}
+                alt={`Image ${i}`}
+                layout="responsive"
+                width={510}
+                height={770}
+                className=" w-full object-cover rounded-xl"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent " />
+            </CardContent>
+
+            <CardHeader>
+              <CardTitle className="text-center text-white font-medium text-base sm:text-lg md:text-xl">
+                {title}
+              </CardTitle>
+              <CardDescription>
+                <p className="text-center text-gray-400 text-sm sm:text-base md:text-lg mt-2 line-clamp-4">
+                  {description[i]}
+                </p>
+              </CardDescription>
+            </CardHeader>
+            <CardAction className="w-[100%] flex justify-center">
+              <Button
+                variant="default"
+                className="bg-white w-[70%] h-10 mb-2 text-lg"
+              >
+                Button
+              </Button>
+            </CardAction>
+          </Card>
+        ))}
+      </ol>
+    </main>
+  );
+}
