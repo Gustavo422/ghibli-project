@@ -1,4 +1,4 @@
-import { Titles, Images, Description } from "@/lib/api";
+import getFilms from "@/lib/api";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import {
@@ -11,9 +11,9 @@ import {
 } from "@/components/FilmCard";
 
 export default async function Page() {
-  const titles = await Titles();
-  const images = await Images();
-  const description = await Description();
+  const titles = await getFilms("title");
+  const images = await getFilms("image");
+  const description = await getFilms("description");
   return (
     <main className="flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
@@ -48,11 +48,8 @@ export default async function Page() {
               </CardDescription>
             </CardHeader>
             <CardAction className="w-[100%] flex justify-center">
-              <Button
-                variant="default"
-                className="bg-white w-[70%] h-10 mb-2 text-lg"
-              >
-                Button
+              <Button variant="default" className=" w-[70%] h-10 mb-2 text-lg">
+                Saiba Mais
               </Button>
             </CardAction>
           </Card>

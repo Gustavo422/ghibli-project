@@ -228,15 +228,15 @@ Desenvolver uma aplicação web que consome a API do Studio Ghibli para exibir i
 
 ### Fase 1: Setup e Configuração
 
-- [ ] Ambiente Next.js configurado
-- [ ] Tailwind CSS funcionando
-- [ ] Estrutura de pastas criada
-- [ ] Repositório Git inicializado
+- [x] Ambiente Next.js configurado
+- [x] Tailwind CSS funcionando
+- [x] Estrutura de pastas criada
+- [x] Repositório Git inicializado
 
 ### Fase 2: Backend e API
 
-- [ ] API Route `/api/films` implementada
-- [ ] Tratamento de erros na API
+- [x] API Route `/api/films` implementada
+- [x] Tratamento de erros na API
 - [ ] Testes manuais dos endpoints
 
 ### Fase 3: Frontend Básico
