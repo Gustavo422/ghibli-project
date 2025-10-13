@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <SessionProvider>
       <header className="fixed top-0 z-50 w-[100%] h-12 ">
-        <nav className="bg-slate-950/95 backdrop-blur-sm px-4 lg:px-6 py-2.5">
+        <nav className="bg-slate-950/95 backdrop-blur-sm px-1 lg:px-2.5 py-2.5">
           <div className="flex items-center justify-between w-full ">
             <SidebarTrigger />
 

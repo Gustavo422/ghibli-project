@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <SidebarProvider>
           <AppSidebar />
           <Header />
-          <div className="flex flex-col justify-center items-center mt-[84px] min-h-[calc(100vh-84px)]">
+          <div className="flex flex-col justify-center items-center mx-auto mt-[84px] min-h-[calc(100vh-84px)]">
             {children}
           </div>
         </SidebarProvider>

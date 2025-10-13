@@ -32,7 +32,10 @@ const items = [
 export default function AppSidebar(...props) {
   return (
     <Sidebar
-      className={clsx("border border-0.5", ...props)}
+      className={clsx(
+        "border border-0.5 border-opacity-85 border-gray-600 mt-[69px]",
+        ...props,
+      )}
       side="left"
       collapsible="icon"
     >
