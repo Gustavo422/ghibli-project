@@ -1,6 +1,11 @@
-import Header from "@/components/ui/Header";
 import "@/styles/globals.css";
-import { SessionProvider } from "next-auth/react";
+import Header from "@/components/Header";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "@/components/ui/Sidebar";
+import AppSidebar from "@/components/AppSidebar";
 import { RocknRoll_One } from "next/font/google";
 
 const rocknroll = RocknRoll_One({
@@ -18,15 +23,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <SessionProvider>
-      <html lang="pt-BR" className={`${rocknroll.variable} h-full`}>
-        <body className="h-screen max-h-screen text-gray-200 antialiased flex flex-col bg-slate-950">
+    <html
+      lang="pt-BR"
+      className={`${rocknroll.variable} h-full hide-scrollbar`}
+    >
+      <body className="h-screen max-h-screen text-gray-200 antialiased flex flex-col bg-slate-950">
+        <SidebarProvider>
+          <AppSidebar />
           <Header />
           <div className="flex flex-col justify-center items-center mt-[84px] min-h-[calc(100vh-84px)]">
             {children}
           </div>
-        </body>
-      </html>
-    </SessionProvider>
+        </SidebarProvider>
+      </body>
+    </html>
   );
 }

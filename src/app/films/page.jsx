@@ -1,28 +1,28 @@
-import getFilms from "@/lib/api";
-import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 import {
   Card,
+  CardAction,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardAction,
 } from "@/components/FilmCard";
+import { Button } from "@/components/ui/Button";
+import getFilms from "@/lib/api";
+import Image from "next/image";
 
 export default async function Page() {
   const titles = await getFilms("title");
   const images = await getFilms("image");
   const descriptions = await getFilms("description");
   return (
-    <main className="flex flex-col items-center min-h-[calc(100vh-84px)] p-6 mt-6 text-center">
+    <main className=" flex flex-col items-center h-[calc(100vh-84px)] mt-20 text-center">
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white">
         Studio Ghibli Films
       </h1>
       <p className="mt-2 text-xl sm:text-2xl md:text-3xl text-white">
         List with all movies of Studio Ghibli
       </p>
-      <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 mt-10 md:mt-14 gap-4 ">
+      <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 mt-4 md:mt-6 gap-4 p-6">
         {titles.map((title, i) => (
           <Card
             key={i}
