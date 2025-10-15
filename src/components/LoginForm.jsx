@@ -1,5 +1,7 @@
 "use client";
 
+import SignIn from "@/components/SignIn";
+import { Button } from "@/components/ui/Button";
 import {
   Card,
   CardContent,
@@ -7,11 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Eye, EyeOff } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
-import SignIn from "@/components/SignIn";
+import { Eye, EyeOff } from "lucide-react";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -43,7 +43,7 @@ export default function LoginForm() {
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                 </div>
-                <div className="relative ">
+                <div className="relative">
                   <Input
                     id="password"
                     className="pr-8"
@@ -53,7 +53,7 @@ export default function LoginForm() {
                   />
                   <button
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground bg-slate-950 p-1 rounded-full"
+                    className="text-muted-foreground absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-950 p-1"
                     type="button"
                   >
                     {!showPassword ? (
@@ -65,7 +65,7 @@ export default function LoginForm() {
                 </div>
                 <Link
                   href="/forgot-password"
-                  className="mr-auto mt-0 text-sm underline-offset-4 hover:underline hover:text-blue-600"
+                  className="mr-auto mt-0 text-sm underline-offset-4 hover:text-blue-600 hover:underline"
                 >
                   Forgot your password?
                 </Link>

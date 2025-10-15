@@ -1,6 +1,5 @@
-import { Film, LogIn, House } from "lucide-react";
-import * as React from "react";
 import clsx from "clsx";
+import { Film, House, LogIn } from "lucide-react";
 
 import {
   Sidebar,
@@ -9,7 +8,6 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarTrigger,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/Sidebar";
@@ -33,7 +31,7 @@ export default function AppSidebar(...props) {
   return (
     <Sidebar
       className={clsx(
-        "border border-0.5 border-opacity-85 border-gray-600 mt-[69px]",
+        "border-0.5 mt-[69px] border border-gray-600 border-opacity-85",
         ...props,
       )}
       side="left"

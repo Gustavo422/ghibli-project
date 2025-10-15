@@ -42,7 +42,7 @@ export default function Profile() {
   const activeAvatarClasses = ["outline-blue-600", "outline-double"];
 
   return (
-    <div className="w-12 h-12">
+    <div className="h-12 w-12">
       <DropdownMenu
         open={open}
         onOpenChange={setOpen}
@@ -64,9 +64,9 @@ export default function Profile() {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align="center"
-          className="bg-transparent border border-transparent p-0"
+          className="border border-transparent bg-transparent p-0"
         >
-          <Card className="w-full bg-slate-950 rounded-lg mt-[5px] rounded-t-none rounded-l-none border-opacity-85 border-gray-600 bg-slate-950/95 backdrop-blur-sm border-l-transparent">
+          <Card className="mt-[5px] w-full rounded-lg rounded-l-none rounded-t-none border-gray-600 border-l-transparent border-opacity-85 bg-slate-950 bg-slate-950/95 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-center text-lg">{name}</CardTitle>
               <CardDescription className="text-center text-sm">
@@ -75,7 +75,7 @@ export default function Profile() {
             </CardHeader>
             <CardContent className="flex flex-row items-start gap-2">
               <Button
-                className="w-30 p-3 flex justify-start text-[15px]"
+                className="w-30 flex justify-start p-3 text-[15px]"
                 onClick={() => signOut()}
                 variant="destructive"
                 type="button"
@@ -85,7 +85,7 @@ export default function Profile() {
               <Button
                 onClick={() => setOpen(false)}
                 variant="ghost"
-                className="w-30 p-3 flex justify-start text-[15px] border-2 border-white"
+                className="w-30 flex justify-start border-2 border-white p-3 text-[15px]"
                 type="button"
               >
                 <CircleX className="text-white" /> Cancel

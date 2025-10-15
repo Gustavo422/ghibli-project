@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
 import {
   Card,
   CardContent,
@@ -7,13 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "./ui/Label";
 
-import { useState } from "react";
 import clsx from "clsx";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ForgotPassForm() {
   const [submit, setSubmit] = useState(false);

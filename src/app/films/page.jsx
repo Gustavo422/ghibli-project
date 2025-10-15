@@ -15,18 +15,18 @@ export default async function Page() {
   const images = await getFilms("image");
   const descriptions = await getFilms("description");
   return (
-    <main className=" flex flex-col items-center h-[calc(100vh-84px)] mt-20 text-center">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white">
+    <main className="mt-20 flex h-[calc(100vh-84px)] flex-col items-center text-center">
+      <h1 className="text-3xl font-bold text-white sm:text-5xl md:text-6xl">
         Studio Ghibli Films
       </h1>
-      <p className="mt-2 text-xl sm:text-2xl md:text-3xl text-white">
+      <p className="mt-2 text-xl text-white sm:text-2xl md:text-3xl">
         List with all movies of Studio Ghibli
       </p>
-      <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 mt-4 md:mt-6 gap-4 p-6">
+      <ol className="mt-4 grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 md:mt-6 md:grid-cols-3 lg:grid-cols-4">
         {titles.map((title, i) => (
           <Card
             key={i}
-            className="bg-gradient-to-t from-slate-950 to-slate-950/80 p-0 rounded-xl"
+            className="rounded-xl bg-gradient-to-t from-slate-950 to-slate-950/80 p-0"
           >
             <CardContent className="relative w-full p-0">
               <Image
@@ -35,23 +35,23 @@ export default async function Page() {
                 width={510}
                 height={770}
                 style={{ width: "100%", height: "auto" }}
-                className=" w-full object-cover rounded-xl"
+                className="w-full rounded-xl object-cover"
               />
-              <div className="absolute bottom-0 left-0 w-full h-[100%] bg-gradient-to-t from-slate-950 via-slate-950/80  to-slate-950/10 " />
+              <div className="absolute bottom-0 left-0 h-[100%] w-full bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
             </CardContent>
 
             <CardHeader>
-              <CardTitle className="text-center text-white font-medium text-base sm:text-lg md:text-xl">
+              <CardTitle className="text-center text-base font-medium text-white sm:text-lg md:text-xl">
                 {title}
               </CardTitle>
               <CardDescription>
-                <p className="text-center text-gray-400 text-sm sm:text-base md:text-lg mt-2 line-clamp-4">
+                <p className="mt-2 line-clamp-4 text-center text-sm text-gray-400 sm:text-base md:text-lg">
                   {descriptions[i]}
                 </p>
               </CardDescription>
             </CardHeader>
-            <CardAction className="w-[100%] flex justify-center">
-              <Button variant="default" className=" w-[70%] h-10 mb-2 text-lg">
+            <CardAction className="flex w-[100%] justify-center">
+              <Button variant="default" className="mb-2 h-10 w-[70%] text-lg">
                 Saiba Mais
               </Button>
             </CardAction>

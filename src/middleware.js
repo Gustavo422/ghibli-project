@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { auth } from "@/auth";
+import { NextResponse } from "next/server";
 
 const protectedRoutes = ["/films", "/forgot-password", "/"];
 

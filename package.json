@@ -6,13 +6,13 @@
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --write .",
-    "lint": "eslint",
+    "lint": "eslint --fix",
     "prepare": "husky",
     "start": "next start"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
+      "prettier --write .",
       "eslint --fix"
     ],
     "*.{json,md,css,scss}": [
