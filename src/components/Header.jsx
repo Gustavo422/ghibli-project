@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SessionProvider } from "next-auth/react";
 import { SidebarTrigger } from "@/components/ui/Sidebar";
 
-export default function Header() {
+export default function Header({}) {
   return (
     <SessionProvider>
       <header className="fixed top-0 z-50 w-[100%] h-12 ">

@@ -21,15 +21,13 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-
 export default function Profile() {
-  const { data: session } = useSession();
+  let { data: session, status } = useSession();
 
   const image = session?.user?.image;
   const username = session?.user?.name || "";
   const name = formattedName(username);
   const fallback = placeholderLetters(username);
-
   const [open, setOpen] = useState(false);
 
   // Avatar style groups

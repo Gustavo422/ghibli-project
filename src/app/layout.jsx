@@ -1,10 +1,6 @@
 import "@/styles/globals.css";
 import Header from "@/components/Header";
-import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "@/components/ui/Sidebar";
+import { SidebarProvider } from "@/components/ui/Sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import { RocknRoll_One } from "next/font/google";
 
