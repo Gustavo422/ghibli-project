@@ -24,10 +24,10 @@ export default function RootLayout({ children }) {
       className={`${rocknroll.variable} hide-scrollbar h-full`}
     >
       <body className="flex h-screen max-h-screen flex-col bg-slate-950 text-gray-200 antialiased">
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={false}>
           <AppSidebar />
           <Header />
-          <div className="mx-auto mt-[84px] flex min-h-[calc(100vh-84px)] flex-col items-center justify-center">
+          <div className="mx-auto flex h-full flex-col items-center justify-center">
             {children}
           </div>
         </SidebarProvider>

@@ -77,6 +77,12 @@ h1 {
   margin: 0%;
 }
 
+.rocknroll {
+  font-family: var(--font-rocknroll);
+  padding: 0%;
+  margin: 0%;
+}
+
 /* globals.css */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

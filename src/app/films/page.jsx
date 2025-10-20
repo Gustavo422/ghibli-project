@@ -9,11 +9,13 @@ import {
 import { Button } from "@/components/ui/Button";
 import getFilms from "@/lib/api";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Page() {
   const titles = await getFilms("title");
   const images = await getFilms("image");
   const descriptions = await getFilms("description");
+  const id = await getFilms("id");
   return (
     <main className="mt-20 flex h-[calc(100vh-84px)] flex-col items-center text-center">
       <h1 className="text-3xl font-bold text-white sm:text-5xl md:text-6xl">
@@ -26,7 +28,7 @@ export default async function Page() {
         {titles.map((title, i) => (
           <Card
             key={i}
-            className="rounded-xl bg-gradient-to-t from-slate-950 to-slate-950/80 p-0"
+            className="rounded-xl border-slate-900 bg-gradient-to-t from-slate-950 to-slate-950/80 p-0 hover:border-white hover:saturate-[.25]"
           >
             <CardContent className="relative w-full p-0">
               <Image
@@ -37,7 +39,7 @@ export default async function Page() {
                 style={{ width: "100%", height: "auto" }}
                 className="w-full rounded-xl object-cover"
               />
-              <div className="absolute bottom-0 left-0 h-[100%] w-full bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
+              <div className="absolute bottom-0 left-0 h-full w-full bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
             </CardContent>
 
             <CardHeader>
@@ -51,9 +53,11 @@ export default async function Page() {
               </CardDescription>
             </CardHeader>
             <CardAction className="flex w-[100%] justify-center">
-              <Button variant="default" className="mb-2 h-10 w-[70%] text-lg">
-                Saiba Mais
-              </Button>
+              <Link href={`/films/${id[i]}`} className="mb-2 h-10 w-[70%]">
+                <Button variant="default" className="w-full text-lg">
+                  Learn More
+                </Button>
+              </Link>
             </CardAction>
           </Card>
         ))}

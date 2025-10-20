@@ -35,7 +35,6 @@ export default function AppSidebar(...props) {
         ...props,
       )}
       side="left"
-      collapsible="icon"
     >
       <SidebarContent>
         <SidebarGroup>

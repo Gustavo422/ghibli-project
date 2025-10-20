@@ -10,9 +10,12 @@ export default function Header({}) {
       <header className="fixed top-0 z-50 h-12 w-[100%]">
         <nav className="bg-slate-950/95 px-1 py-2.5 backdrop-blur-sm lg:px-2.5">
           <div className="flex w-full items-center justify-between">
-            <SidebarTrigger />
+            <SidebarTrigger className="h-10 w-10 bg-slate-900" />
 
-            <Link href="/" className="relative h-12 w-28 self-center">
+            <Link
+              href="/"
+              className="relative h-10 w-24 self-center md:h-12 md:w-28"
+            >
               <Image
                 src="/jiji-logo.png"
                 alt="Logo"

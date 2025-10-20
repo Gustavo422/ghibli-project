@@ -25,24 +25,24 @@ export default function Profile() {
   let { data: session, status } = useSession();
 
   const image = session?.user?.image;
-  const username = session?.user?.name || "";
+  const username = session?.user?.name || "User...";
   const name = formattedName(username);
   const fallback = placeholderLetters(username);
   const [open, setOpen] = useState(false);
 
   // Avatar style groups
   const baseAvatarClasses = [
-    "w-full h-full",
+    "w-full h-full ",
     "bg-white text-slate-950",
-    "text-lg sm:text-xl md:text-2xl font-bold antialiased",
+    "text-sm sm:text-base md:text-lg font-bold antialiased",
     "outline outline-4",
     "transition-all duration-150",
   ];
-  const hoverAvatarClasses = ["hover:outline-blue-600", "hover:outline-double"];
-  const activeAvatarClasses = ["outline-blue-600", "outline-double"];
+  const hoverAvatarClasses = ["hover:outline-blue-800", "hover:outline-double"];
+  const activeAvatarClasses = ["outline-blue-800", "outline-double"];
 
   return (
-    <div className="h-12 w-12">
+    <div className="h-8 w-8">
       <DropdownMenu
         open={open}
         onOpenChange={setOpen}

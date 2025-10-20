@@ -16,9 +16,10 @@ const FIELDS = new Set([
   "locations",
   "vehicles",
   "url",
+  "all",
 ]);
 
-export default async function getFilms(field) {
+export default async function getFilms(field, filmId) {
   field = field.toLowerCase();
   if (!FIELDS.has(field)) {
     throw new Error(`Invalid Field: ${field}`);
@@ -29,6 +30,18 @@ export default async function getFilms(field) {
   });
   if (!res.ok) throw new Error("Error in search Ghibli Films: " + res.status);
   const cachedFilms = await res.json();
-  const dataType = cachedFilms.map((film) => film?.[field]);
-  return dataType;
+  if (filmId && field === "all") {
+    const allDatasFilm = await cachedFilms.find((item) => item?.id === filmId);
+    return allDatasFilm;
+  }
+
+  if (filmId) {
+    const specificFilm = await cachedFilms.find(
+      (item) => item?.id === filmId,
+    )?.[field];
+    return specificFilm;
+  } else {
+    const dataType = cachedFilms.map((film) => film?.[field]);
+    return dataType;
+  }
 }
