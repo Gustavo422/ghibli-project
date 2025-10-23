@@ -11,6 +11,15 @@ import getFilms from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Studio Ghibli Films",
+  description: "Session with all Studio Ghibli Films",
+  openGraph: {
+    title: "Films",
+    description: "Films page",
+  },
+};
+
 export default async function Page() {
   const titles = await getFilms("title");
   const images = await getFilms("image");

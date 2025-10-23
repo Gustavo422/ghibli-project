@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
-import { Eye, EyeOff } from "lucide-react";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -57,9 +57,9 @@ export default function LoginForm() {
                     type="button"
                   >
                     {!showPassword ? (
-                      <Eye className="h-4 w-4 text-white" />
+                      <EyeIcon className="h-4 w-4 text-white" />
                     ) : (
-                      <EyeOff className="h-4 w-4 text-white" />
+                      <EyeOffIcon className="h-4 w-4 text-white" />
                     )}
                   </button>
                 </div>

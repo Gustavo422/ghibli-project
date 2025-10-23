@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/Separator";
 import FreshTomatoIcon from "@/components/ui/svg/FreshTomatoIcon.svg";
 import RottenTomatoIcon from "@/components/ui/svg/RottenTomatoIcon.svg";
 import getFilms from "@/lib/api";
-import { Calendar, Timer } from "lucide-react";
+import { CalendarIcon, TimerIcon } from "lucide-react";
 
 import Image from "next/image";
 /*
@@ -24,6 +24,17 @@ import Image from "next/image";
   "vehicles",
   "url",
 */
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const metadataTitle = await getFilms("title", id);
+  const metadataDescription = await getFilms("description", id);
+  return {
+    title: metadataTitle,
+    description: metadataDescription,
+  };
+}
+
 export default async function Page({ params }) {
   const { id } = await params;
   const allDatas = await getFilms("all", id);
@@ -96,7 +107,7 @@ export default async function Page({ params }) {
                     className="gap-x-1 rounded-full border border-white bg-slate-900 p-2 hover:bg-slate-950"
                     variant="default"
                   >
-                    <Calendar className="h-3 w-3 lg:h-[14px] lg:w-[14px]" />
+                    <CalendarIcon className="h-3 w-3 lg:h-[14px] lg:w-[14px]" />
                     <p className="font-stretch-[200%] text-[14px] font-medium lg:text-[15px]">
                       {allDatas?.release_date}
                     </p>
@@ -105,7 +116,7 @@ export default async function Page({ params }) {
                     className="gap-x-1 rounded-full border border-white bg-slate-900 p-2 hover:bg-slate-950"
                     variant="default"
                   >
-                    <Timer className="h-[14px] w-[14px] lg:h-[15px] lg:w-[15px]" />
+                    <TimerIcon className="h-[14px] w-[14px] lg:h-[15px] lg:w-[15px]" />
                     <p className="font-stretch-[200%] text-[14px] font-medium lg:text-[15px]">
                       {allDatas?.running_time} minutes
                     </p>

@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { CircleX, LogOut } from "lucide-react";
+import { CircleXIcon, LogOutIcon } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 
@@ -71,7 +71,7 @@ export default function Profile({ className }) {
                 variant="destructive"
                 type="button"
               >
-                <LogOut className="h-4 w-4" /> Log Out
+                <LogOutIcon className="h-4 w-4" /> Log Out
               </Button>
               <Button
                 onClick={() => setOpen(false)}
@@ -79,7 +79,7 @@ export default function Profile({ className }) {
                 className="flex items-center gap-2 border-2 border-white p-3 px-3 py-2 text-[15px]"
                 type="button"
               >
-                <CircleX className="text-white" /> Cancel
+                <CircleXIcon className="text-white" /> Cancel
               </Button>
             </CardContent>
           </Card>
