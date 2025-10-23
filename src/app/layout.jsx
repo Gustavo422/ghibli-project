@@ -1,6 +1,4 @@
-import AppSidebar from "@/components/AppSidebar";
 import Header from "@/components/Header";
-import { SidebarProvider } from "@/components/ui/Sidebar";
 import "@/styles/globals.css";
 import { RocknRoll_One } from "next/font/google";
 
@@ -24,13 +22,11 @@ export default function RootLayout({ children }) {
       className={`${rocknroll.variable} hide-scrollbar h-full`}
     >
       <body className="flex h-screen max-h-screen flex-col bg-slate-950 text-gray-200 antialiased">
-        <SidebarProvider defaultOpen={false}>
-          <AppSidebar />
+        <div className="mx-auto flex h-full flex-col items-center justify-center">
           <Header />
-          <div className="mx-auto flex h-full flex-col items-center justify-center">
-            {children}
-          </div>
-        </SidebarProvider>
+
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -1,34 +1,61 @@
-import Profile from "@/components/Profile";
-import { SidebarTrigger } from "@/components/ui/Sidebar";
-import { SessionProvider } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 
-export default function Header({}) {
-  return (
-    <SessionProvider>
-      <header className="fixed top-0 z-50 h-12 w-[100%]">
-        <nav className="bg-slate-950/95 px-1 py-2.5 backdrop-blur-sm lg:px-2.5">
-          <div className="flex w-full items-center justify-between">
-            <SidebarTrigger className="h-10 w-10 bg-slate-900" />
+import Profile from "@/components/Profile";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@/components/ui/NavigationMenu";
+import { Separator } from "@/components/ui/Separator";
 
-            <Link
-              href="/"
-              className="relative h-10 w-24 self-center md:h-12 md:w-28"
-            >
-              <Image
-                src="/jiji-logo.png"
-                alt="Logo"
-                fill
-                style={{ objectFit: "contain" }}
-                className="absolute"
-              />
-            </Link>
-            <Profile />
-          </div>
-        </nav>
-        <hr className="border-t border-gray-600 border-opacity-85" />
-      </header>
-    </SessionProvider>
+import HamburguerMenu from "@/components/HamburguerMenu";
+import { MobileSearchForm, SearchForm } from "@/components/SearchForm";
+import { SessionProvider } from "next-auth/react";
+import Image from "next/image";
+export default function Header() {
+  return (
+    <header className="fixed top-0 z-50 h-12">
+      <nav className="bg-black/30 px-1 py-1 backdrop-blur-sm lg:px-2.5">
+        <NavigationMenu className="flex h-full items-center justify-between">
+          <NavigationMenuList className="h-full w-screen justify-between">
+            <NavigationMenuItem>
+              <div className="ml-3 flex h-[50px] items-center justify-center space-x-4">
+                <Link href="/" className="relative h-[46px] w-[88px]">
+                  <Image
+                    src="/jiji-logo_02.png"
+                    fill
+                    quality={100}
+                    priority
+                    alt="Logo"
+                    className="object-cover"
+                  />
+                </Link>
+                <Separator
+                  orientation="vertical"
+                  className="h-[90%] w-[2px] rounded-lg bg-slate-200/10"
+                />
+              </div>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <SearchForm className="sr-only lg:not-sr-only" />
+            </NavigationMenuItem>
+            <div className="flex h-[40px] gap-x-3 pr-3">
+              <NavigationMenuItem className="relative m-0 flex aspect-square h-full items-center justify-center rounded-full bg-gray-200 p-0">
+                <SessionProvider>
+                  <Profile />
+                </SessionProvider>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="m-0 h-full w-full rounded-md border border-white/10 bg-[#0D0D0B]/70 p-0">
+                <HamburguerMenu />
+              </NavigationMenuItem>
+              <NavigationMenuItem className="m-0 flex aspect-square h-full w-full items-center justify-center rounded-md border border-white/10 bg-[#0D0D0B]/70 p-0 lg:sr-only">
+                <MobileSearchForm />
+              </NavigationMenuItem>
+            </div>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </nav>
+      <hr className="border-t border-gray-600 border-opacity-85" />
+    </header>
   );
 }

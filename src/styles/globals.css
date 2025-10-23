@@ -114,3 +114,15 @@ h1 {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
+@layer components {
+  .base-avatar-classes {
+    @apply h-full w-full bg-white text-sm font-bold text-slate-950 antialiased outline outline-4 transition-all duration-150;
+  }
+  .hover-avatar-classes {
+    @apply hover:outline-double hover:outline-blue-800;
+  }
+  .active-avatar-classes {
+    @apply outline-double outline-blue-800;
+  }
+}
