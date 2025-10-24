@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
-import { Label } from "./ui/Label";
+import { Label } from "@/components/ui/Label";
 
 import clsx from "clsx";
 import Link from "next/link";
