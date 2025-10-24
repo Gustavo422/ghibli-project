@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/Dialog";
 import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+import { Label } from "@/components/ui/label";
 import { SearchIcon } from "lucide-react";
 
 export function SearchForm({ ...props }) {
