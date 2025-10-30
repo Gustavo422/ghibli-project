@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-import Profile from "@/components/Profile";
+import HamburguerMenu from "@/components/header_components/HamburguerMenu";
+import Profile from "@/components/header_components/Profile";
+import { SearchForm } from "@/components/SearchForm";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -8,8 +10,7 @@ import {
 } from "@/components/ui/NavigationMenu";
 import { Separator } from "@/components/ui/Separator";
 
-import HamburguerMenu from "@/components/HamburguerMenu";
-import { MobileSearchForm, SearchForm } from "@/components/SearchForm";
+import { MobileSearchForm } from "@/components/SearchForm";
 import { SessionProvider } from "next-auth/react";
 import Image from "next/image";
 export default function Header() {

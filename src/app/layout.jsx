@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header_components/Header";
 import "@/styles/globals.css";
 import { RocknRoll_One } from "next/font/google";
 
