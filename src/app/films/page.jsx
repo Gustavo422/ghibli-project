@@ -37,7 +37,7 @@ export default async function Page() {
         {titles.map((title, i) => (
           <Card
             key={i}
-            className="rounded-xl border-slate-900 bg-gradient-to-t from-slate-950 to-slate-950/80 p-0 hover:border-white hover:saturate-[.25]"
+            className="rounded-xl border-slate-900 bg-linear-to-t from-slate-950 to-slate-950/80 p-0 hover:border-white hover:saturate-[.25]"
           >
             <CardContent className="relative w-full p-0">
               <Image
@@ -48,7 +48,7 @@ export default async function Page() {
                 style={{ width: "100%", height: "auto" }}
                 className="w-full rounded-xl object-cover"
               />
-              <div className="absolute bottom-0 left-0 h-full w-full bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
+              <div className="absolute bottom-0 left-0 h-full w-full bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
             </CardContent>
 
             <CardHeader>
@@ -61,7 +61,7 @@ export default async function Page() {
                 </p>
               </CardDescription>
             </CardHeader>
-            <CardAction className="flex w-[100%] justify-center">
+            <CardAction className="flex w-full justify-center">
               <Link href={`/films/${id[i]}`} className="mb-2 h-10 w-[70%]">
                 <Button variant="default" className="w-full text-lg">
                   Learn More

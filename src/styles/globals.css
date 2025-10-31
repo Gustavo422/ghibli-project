@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --radius: 0.625rem;
@@ -112,17 +110,5 @@ h1 {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer components {
-  .base-avatar-classes {
-    @apply h-full w-full bg-white text-sm font-bold text-slate-950 antialiased outline outline-4 transition-all duration-150;
-  }
-  .hover-avatar-classes {
-    @apply hover:outline-double hover:outline-blue-800;
-  }
-  .active-avatar-classes {
-    @apply outline-double outline-blue-800;
   }
 }

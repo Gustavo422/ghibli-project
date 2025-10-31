@@ -7,7 +7,7 @@ const protectedRoutes = ["/films", "/forgot-password", "/"];
  * @param {import('next/server').NextRequest} request
  */
 
-export async function middleware(request) {
+export async function proxy(request) {
   const session = await auth();
 
   if (!session) {
@@ -18,5 +18,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/films/:path*", "/forgot-password/:path", "/dashboard"],
+  matcher: ["/", "/films/:path*", "/forgot-password/:path"],
 };

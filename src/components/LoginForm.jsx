@@ -53,7 +53,7 @@ export default function LoginForm() {
                   />
                   <button
                     onClick={() => setShowPassword(!showPassword)}
-                    className="text-muted-foreground absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full bg-slate-950 p-1"
+                    className="text-muted-foreground absolute top-1/2 right-2.5 -translate-y-1/2 rounded-full bg-slate-950 p-1"
                     type="button"
                   >
                     {!showPassword ? (
@@ -65,7 +65,7 @@ export default function LoginForm() {
                 </div>
                 <Link
                   href="/forgot-password"
-                  className="mr-auto mt-0 text-sm underline-offset-4 hover:text-blue-600 hover:underline"
+                  className="mt-0 mr-auto text-sm underline-offset-4 hover:text-blue-600 hover:underline"
                 >
                   Forgot your password?
                 </Link>

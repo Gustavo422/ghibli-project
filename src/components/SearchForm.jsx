@@ -1,7 +1,11 @@
+"use client";
+
+import ClientSearchResult from "@/components/ClientSearchResult";
 import { Button } from "@/components/ui/Button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -11,6 +15,9 @@ import { Label } from "@/components/ui/label";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { clsx } from "clsx";
 import { SearchIcon } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export function SearchForm({ ...props }) {
   const mobileDetection = useIsMobile();
@@ -70,10 +77,10 @@ export function SearchForm({ ...props }) {
                   handleSearch(v);
                 }}
               />
-              <SearchIcon className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
+              <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
             </div>
           </form>
-          <div className={clsx("fixed left-0 right-0 top-20 px-[200px]")}>
+          <div className={clsx("fixed top-20 right-0 left-0 px-[200px]")}>
             <div className="rounded-md border bg-slate-950 p-3">
               <ClientSearchResult
                 term={search || searchParams.get("query") || ""}
@@ -96,7 +103,7 @@ export function SearchForm({ ...props }) {
               >
                 <SearchIcon
                   strokeWidth={3}
-                  className="m-0 mt-[2px] h-6 w-6 p-0"
+                  className="m-0 mt-0.5 h-6 w-6 p-0"
                 />
               </Button>
             </DialogTrigger>
@@ -122,7 +129,7 @@ export function SearchForm({ ...props }) {
                     handleSearch(v);
                   }}
                 />
-                <SearchIcon className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none text-slate-950 opacity-50" />
+                <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 text-slate-950 opacity-50 select-none" />
               </div>
               <DialogFooter>
                 <ClientSearchResult

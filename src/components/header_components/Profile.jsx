@@ -55,7 +55,7 @@ export default function Profile({ className }) {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align="center"
-          className="m-0 mr-16 mt-[18px] gap-0 rounded-md border-none bg-transparent p-0"
+          className="m-0 mt-[18px] mr-16 gap-0 rounded-md border-none bg-transparent p-0"
         >
           <Card className="h-full w-full rounded-md border-2 border-white/80 opacity-85 backdrop-blur-sm">
             <CardHeader>

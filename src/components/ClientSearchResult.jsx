@@ -11,6 +11,7 @@ export default function ClientSearchResult({ term }) {
 
   useEffect(() => {
     if (!term) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setData([]);
       setLoading(false);
       setError(false);
@@ -61,7 +62,7 @@ export default function ClientSearchResult({ term }) {
               href={`/films/${findedItems?.item?.id}`}
               className="flex hover:bg-black/50"
             >
-              <div className="relative aspect-[2/3] h-[78px] w-14 object-cover">
+              <div className="relative aspect-2/3 h-[78px] w-14 object-cover">
                 <Image
                   fill
                   alt="Image of Film search"
