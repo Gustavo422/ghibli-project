@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import HamburguerMenu from "@/components/header_components/HamburguerMenu";
 import Profile from "@/components/header_components/Profile";
-import { SearchForm } from "@/components/SearchForm";
+import { SearchForm } from "@/components/search_components/SearchForm";
 import {
   NavigationMenu,
   NavigationMenuItem,

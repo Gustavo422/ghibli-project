@@ -8,8 +8,8 @@ export async function GET(request) {
   }
 
   let results = await searchResult(term);
-  if (results.length > 7) {
-    results = results.slice(0, 7);
+  if (results.length > 5) {
+    results = results.slice(0, 5);
   }
   return Response.json(results, { status: 200 });
 }
