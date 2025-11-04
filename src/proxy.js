@@ -18,5 +18,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/", "/films/:path*", "/forgot-password/:path"],
+  matcher: ["/", "/films/:path*"],
 };

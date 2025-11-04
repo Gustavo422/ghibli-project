@@ -19,7 +19,7 @@ export default function HamburguerMenu() {
     <>
       <Popover open={open} onOpenChange={setOpen} className="m-0 w-auto p-0">
         <PopoverTrigger
-          className="m-0 flex h-full w-full items-center justify-center p-0"
+          className="m-0 flex h-full w-full cursor-pointer items-center justify-center p-0 transition-all duration-300 hover:scale-105 hover:border hover:border-black"
           asChild
         >
           <Button

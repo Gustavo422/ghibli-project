@@ -86,17 +86,17 @@ export function SearchForm({ ...props }) {
         <Dialog open={open} onOpenChange={setOpen}>
           <form>
             <DialogTrigger
-              className="m-0 flex h-full w-full items-center justify-center p-0"
+              className="m-0 flex h-full w-full items-center justify-center bg-transparent p-0 transition"
               asChild
             >
               <Button
                 type="button"
                 variant="ghost"
-                className="m-0 h-full w-full p-0"
+                className="m-0 h-full w-full cursor-pointer p-0"
               >
                 <SearchIcon
                   strokeWidth={3}
-                  className="m-0 mt-0.5 h-6 w-6 p-0"
+                  className="m-2 h-6 w-6 rounded-lg p-0"
                 />
               </Button>
             </DialogTrigger>

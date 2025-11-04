@@ -21,9 +21,9 @@ const nextConfig = {
     resolveExtensions: [".jsx", ".js", ".mjs", ".json", ".css"],
     debugIds: true,
   },
-  experimental: {
-    turbopackFileSystemCacheForDev: true,
-  },
+  //experimental: {
+  //turbopackFileSystemCacheForDev: true,
+  //},
   webpack(config, { webpack, isServer }) {
     try {
       const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
