@@ -81,7 +81,7 @@ export default function ClientSearchResult({ term, open, setOpen }) {
           {data.map((findedItems, i) => (
             <div
               key={i}
-              className="m-2 flex flex-col rounded-md border transition-transform duration-200 hover:scale-[1.01]"
+              className="m-2 flex flex-col rounded-md border transition-all duration-200 hover:scale-[1.01]"
             >
               <Link
                 href={`/films/${findedItems?.item?.id}`}

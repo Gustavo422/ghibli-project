@@ -17,10 +17,10 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/Popover";
 export default function Profile({ className }) {
   let { data: session, status } = useSession();
 
@@ -31,38 +31,35 @@ export default function Profile({ className }) {
   const [open, setOpen] = useState(false);
   return (
     <div className={clsx("relative", className)}>
-      <DropdownMenu
+      <Popover
         open={open}
         onOpenChange={setOpen}
         delayDuration={200}
         className="bg-black"
       >
-        <DropdownMenuTrigger
-          asChild
-          className="flex items-center justify-center bg-black/5"
-        >
+        <PopoverTrigger asChild className="flex items-center justify-center">
           <button
             type="button"
             aria-label="Open profile menu"
-            className="relative flex h-9 w-9 items-center justify-center rounded-full p-0"
+            className="relative flex aspect-square h-10 items-center justify-center rounded-full p-0"
           >
-            <Avatar className="h-full w-full cursor-pointer transition-all duration-300 ease-out hover:scale-110 hover:border-[3px] hover:border-double hover:border-blue-500/80">
+            <Avatar className="h-full w-full cursor-pointer border-[3px] border-double border-white/30 transition-all duration-200 ease-out hover:scale-110 hover:border-blue-500/80">
               <AvatarImage
                 alt={`${username} profile picture`}
                 src={image}
                 className="h-full w-full object-cover"
               />
-              <AvatarFallback className="flex h-full w-full items-center justify-center bg-black text-sm">
+              <AvatarFallback className="flex h-full w-full items-center justify-center bg-black/30 text-sm">
                 {fallback}
               </AvatarFallback>
             </Avatar>
           </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
+        </PopoverTrigger>
+        <PopoverContent
           align="center"
-          className="m-0 mt-[18px] mr-16 gap-0 rounded-md border-none bg-transparent p-0"
+          className="m-0 mt-[18px] mr-16 gap-0 rounded-md border-none p-0"
         >
-          <Card className="h-full w-full rounded-md border-2 border-white/80 opacity-85 backdrop-blur-sm">
+          <Card className="h-full w-full rounded-md border border-white/80">
             <CardHeader>
               <CardTitle className="text-center text-lg">{name}</CardTitle>
               <CardDescription className="text-center text-sm">
@@ -89,8 +86,8 @@ export default function Profile({ className }) {
               </Button>
             </CardContent>
           </Card>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }

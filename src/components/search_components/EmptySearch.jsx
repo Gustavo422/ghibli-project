@@ -14,7 +14,7 @@ export default function EmptySearch({ term }) {
       </div>
       <div className="mb-2 flex flex-col items-center justify-center md:mb-5">
         <h3 className="flex items-center justify-center gap-y-2 text-center text-3xl font-bold text-slate-300 sm:text-2xl md:text-4xl">
-          <ClapperboardIcon className="mr-2 aspect-square h-7 w-7 md:mr-3 md:h-[33px] md:w-[33px]" />
+          <ClapperboardIcon className="mr-2 line-clamp-1 aspect-square h-7 w-7 md:mr-3 md:h-[33px] md:w-[33px]" />
           Any films found!
         </h3>
         <p className="mx-10 mt-1 text-center text-lg font-medium text-slate-500 sm:text-base md:text-xl">
@@ -29,13 +29,13 @@ export default function EmptySearch({ term }) {
         <div className="mt-2 flex flex-wrap gap-2 sm:justify-center md:flex-col lg:flex-row">
           <Link
             href={`/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49`}
-            className="rounded-xl bg-green-300 px-3 py-1 font-medium text-green-900 transition hover:bg-green-700/85 hover:text-green-300"
+            className="rounded-xl bg-green-300 px-3 py-1 font-medium text-green-900 transition-all duration-200 hover:scale-105 hover:bg-green-700/85 hover:text-green-300"
           >
             Tonari no Totoro
           </Link>
           <Link
             href={`/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49`}
-            className="rounded-xl bg-green-300 px-3 py-1 font-medium text-green-900 transition hover:bg-green-700/85 hover:text-green-300"
+            className="rounded-xl bg-green-300 px-3 py-1 font-medium text-green-900 transition-all duration-200 hover:scale-105 hover:bg-green-700/85 hover:text-green-300"
           >
             My Neighbor Totoro
           </Link>

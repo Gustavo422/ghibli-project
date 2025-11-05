@@ -1,26 +1,22 @@
 "use client";
 
 import ClientSearchResult from "@/components/search_components/ClientSearchResult";
+import SearchPanel from "@/components/search_components/SearchPanel";
 import { Button } from "@/components/ui/Button";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogPortal,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/Dialog";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/Popover";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, XIcon } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import SearchPanel from "./SearchPanel";
 
-export function SearchForm({ ...props }) {
+export function SearchForm() {
   const mobileDetection = useIsMobile();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -38,6 +34,14 @@ export function SearchForm({ ...props }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [open]);
+
   const handleSearch = useDebouncedCallback((term) => {
     console.log(`Searching... ${term}`);
     const params = new URLSearchParams(searchParams);
@@ -54,15 +58,16 @@ export function SearchForm({ ...props }) {
     <>
       {!mobileDetection && (
         <div>
-          <form {...props}>
-            <div className="relative h-full w-72">
+          <form className="rounded-md border border-slate-400 transition-all duration-200 ease-out focus-within:scale-105 hover:scale-105">
+            <div className="flex h-full w-72 items-center justify-start">
               <Label htmlFor="search" className="sr-only">
                 Search
               </Label>
+              <SearchIcon className="pointer-events-none order-1 mx-1.5 rounded-full text-slate-400 transition-all duration-200 ease-out select-none" />
               <Input
                 id="search"
                 placeholder="Type to search your favorites films..."
-                className="h-8 pl-7"
+                className="order-2 m-0! h-8 w-full gap-0! rounded-full border-transparent! p-1! transition-all duration-200 ease-out focus-visible:ring-0!"
                 defaultValue={term}
                 onChange={(e) => {
                   const v = e.target.value;
@@ -70,7 +75,6 @@ export function SearchForm({ ...props }) {
                   handleSearch(v);
                 }}
               />
-              <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
             </div>
           </form>
           <SearchPanel term={term} open={open} setOpen={setOpen}>
@@ -83,10 +87,10 @@ export function SearchForm({ ...props }) {
         </div>
       )}
       {mobileDetection && (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Popover open={open} onOpenChange={setOpen} className="w-full">
           <form>
-            <DialogTrigger
-              className="m-0 flex h-full w-full items-center justify-center bg-transparent p-0 transition"
+            <PopoverTrigger
+              className="flex h-full w-full items-center justify-center border border-white/30 bg-black/30 transition-all duration-200 hover:border-black/30 hover:bg-slate-100/30"
               asChild
             >
               <Button
@@ -96,40 +100,50 @@ export function SearchForm({ ...props }) {
               >
                 <SearchIcon
                   strokeWidth={3}
-                  className="m-2 h-6 w-6 rounded-lg p-0"
+                  className="m-2 h-6 w-6 rounded-lg"
                 />
               </Button>
-            </DialogTrigger>
-            <DialogPortal>
-              <DialogContent
-                aria-describedby="Search Tool"
-                className="flex flex-col items-center justify-center rounded-md bg-slate-950"
-              >
-                <DialogHeader className="flex items-center justify-center">
-                  <DialogTitle className="text-center">
+            </PopoverTrigger>
+            <PopoverContent
+              aria-describedby="Search Tool"
+              className="flex w-screen items-center justify-center gap-0! rounded-md border border-transparent p-0!"
+              side="bottom"
+              align="center"
+              style={{ transform: "translateY(17px)" }}
+            >
+              <div className="flex h-full w-[99%] flex-col gap-3 rounded-md border bg-slate-950 p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-center text-lg font-semibold text-slate-200">
                     Search Films for Studio Ghibli
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="relative w-full">
+                  </h3>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => setOpen(false)}
+                    className="m-0! mb-1! cursor-pointer gap-0! bg-transparent! p-0! transition-all duration-200 ease-out hover:scale-120"
+                  >
+                    <XIcon className="rounded-md bg-slate-900 p-1 text-slate-200" />
+                  </Button>
+                </div>
+                <div className="relative flex items-center justify-center gap-2 rounded-md border border-slate-200 p-1 px-2">
                   <Input
                     id="search"
                     placeholder="Type to search your favorites films..."
-                    className="h-8 w-full bg-white pl-7 text-black"
+                    className="order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 text-slate-400 focus-visible:ring-0!"
                     defaultValue={term}
+                    type="search"
                     onChange={(e) => {
                       const v = e.target.value;
                       handleSearch(v);
                     }}
                   />
-                  <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 text-slate-950 opacity-50 select-none" />
+                  <SearchIcon className="pointer-events-none order-1 text-slate-200 select-none" />
                 </div>
-                <DialogFooter>
-                  <ClientSearchResult term={term || ""} />
-                </DialogFooter>
-              </DialogContent>
-            </DialogPortal>
+                <ClientSearchResult term={term || ""} />
+              </div>
+            </PopoverContent>
           </form>
-        </Dialog>
+        </Popover>
       )}
     </>
   );

@@ -17,9 +17,9 @@ export default function HamburguerMenu() {
 
   return (
     <>
-      <Popover open={open} onOpenChange={setOpen} className="m-0 w-auto p-0">
+      <Popover open={open} onOpenChange={setOpen} className="w-auto p-0">
         <PopoverTrigger
-          className="m-0 flex h-full w-full cursor-pointer items-center justify-center p-0 transition-all duration-300 hover:scale-105 hover:border hover:border-black"
+          className="flex h-full w-full cursor-pointer items-center justify-center border border-white/30 transition-all duration-200 hover:scale-105 hover:border-slate-600 hover:bg-slate-100/30"
           asChild
         >
           <Button
@@ -36,15 +36,15 @@ export default function HamburguerMenu() {
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className="w-full rounded-md border-2 border-white/80 opacity-85 backdrop-blur-sm"
+          className="w-full rounded-md border border-white/80 bg-slate-950"
           side="bottom"
           align="start"
-          style={{ transform: "translateX(-13px)" }}
+          style={{ transform: "translateX(-13px) translateY(17px)" }}
         >
-          <ul className="grid h-full w-full bg-transparent">
+          <ul className="grid h-full w-full">
             <li>
               <Link href="/" className="flex items-center justify-center pb-2">
-                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all hover:rounded-lg hover:bg-slate-900">
+                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
                   <HomeIcon />
                   Home Page
                 </div>
@@ -54,14 +54,14 @@ export default function HamburguerMenu() {
                 href="/login"
                 className="flex items-center justify-center pb-2"
               >
-                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all hover:rounded-lg hover:bg-slate-900">
+                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
                   <UserIcon />
                   Login
                 </div>
               </Link>
 
               <Link href="/films" className="flex items-center justify-center">
-                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all hover:rounded-lg hover:bg-slate-900">
+                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
                   <FilmIcon />
                   Films
                 </div>

@@ -27,32 +27,31 @@ export default async function Page() {
   const id = await getFilms("id");
   return (
     <main className="mt-20 flex h-[calc(100vh-84px)] flex-col items-center text-center">
-      <h1 className="text-3xl font-bold text-white sm:text-5xl md:text-6xl">
+      <h1 className="text-3xl font-bold text-slate-200 sm:text-5xl md:text-6xl">
         Studio Ghibli Films
       </h1>
-      <p className="mt-2 text-xl text-white sm:text-2xl md:text-3xl">
+      <p className="mt-2 text-xl text-slate-200 sm:text-2xl md:text-3xl">
         List with all movies of Studio Ghibli
       </p>
-      <ol className="mt-4 grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 md:mt-6 md:grid-cols-3 lg:grid-cols-4">
+      <ol className="mt-4 grid grid-cols-2 gap-3 p-2 sm:grid-cols-3 md:mt-6 md:grid-cols-3 md:gap-5 md:p-6 lg:grid-cols-4">
         {titles.map((title, i) => (
           <Card
             key={i}
-            className="rounded-xl border-slate-900 bg-linear-to-t from-slate-950 to-slate-950/80 p-0 hover:border-white hover:saturate-[.25]"
+            className="group rounded-xl border-slate-900 bg-linear-to-t from-slate-950 to-slate-950/80 p-0 transition-all duration-200 hover:scale-[1.02] hover:border-slate-200"
           >
-            <CardContent className="relative w-full p-0">
+            <CardContent className="flex w-full flex-col p-0">
               <Image
                 src={images[i]}
                 alt={`Image ${i}`}
                 width={510}
                 height={770}
                 style={{ width: "100%", height: "auto" }}
-                className="w-full rounded-xl object-cover"
+                className="w-full rounded-t-xl object-cover brightness-75"
               />
-              <div className="absolute bottom-0 left-0 h-full w-full bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-950/10" />
             </CardContent>
 
             <CardHeader>
-              <CardTitle className="text-center text-base font-medium text-white sm:text-lg md:text-xl">
+              <CardTitle className="line-clamp-1 text-center text-base font-medium text-slate-200 sm:text-lg md:text-xl">
                 {title}
               </CardTitle>
               <CardDescription>
@@ -63,7 +62,10 @@ export default async function Page() {
             </CardHeader>
             <CardAction className="flex w-full justify-center">
               <Link href={`/films/${id[i]}`} className="mb-2 h-10 w-[70%]">
-                <Button variant="default" className="w-full text-lg">
+                <Button
+                  variant="default"
+                  className="z-20 w-full cursor-pointer text-lg"
+                >
                   Learn More
                 </Button>
               </Link>

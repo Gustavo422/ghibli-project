@@ -108,22 +108,6 @@ h1 {
   margin: 0%;
 }
 
-@media (max-width: 640px) {
-  .searchsm {
-    margin: 0; /* m-0 */
-    display: flex; /* flex */
-    aspect-ratio: 1 / 1; /* aspect-square */
-    height: 100%; /* h-full */
-    width: 100%; /* w-full */
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    border-radius: 6px; /* rounded-md → 6px (default Tailwind) */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* border + border-white/10 */
-    background-color: rgba(0, 0, 0, 0.05); /* bg-black/5 */
-    padding: 3px; /* p-0 */
-  }
-}
-
 /* globals.css */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
