@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 
-const protectedRoutes = ["/films", "/forgot-password", "/"];
+export const protectedRoutes = ["/films", "/forgot-password", "/"];
 
 /**
  * @param {import('next/server').NextRequest} request

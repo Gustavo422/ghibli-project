@@ -1,5 +1,5 @@
 import FilmPage from "@/components/FilmPage";
-import getFilms from "@/lib/api";
+import { getFilmForId } from "@/lib/api";
 import { Suspense } from "react";
 /*
   "title",
@@ -22,11 +22,10 @@ import { Suspense } from "react";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const metadataTitle = await getFilms("title", id);
-  const metadataDescription = await getFilms("description", id);
+  const metadatas = await getFilmForId(id, "title", "description");
   return {
-    title: metadataTitle,
-    description: metadataDescription,
+    title: metadatas?.title,
+    description: metadatas?.description,
   };
 }
 

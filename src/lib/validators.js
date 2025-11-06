@@ -1,8 +1,14 @@
-import getFilms from "@/lib/api";
+import { getFieldsFromAllFilms } from "@/lib/api";
 import Fuse from "fuse.js";
 
 export async function searchResult(searched_word) {
-  const list = await getFilms("search_form");
+  const list = await getFieldsFromAllFilms(
+    "image",
+    "title",
+    "original_title_romanised",
+    "description",
+    "id",
+  );
   const options = {
     keys: ["title", "title_romanised"],
     threshold: 0.3,
