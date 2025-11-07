@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
 
 export default function Page({ params }) {
   return (
-    <Suspense fallback={<div>Carregando filme…</div>}>
+    <Suspense fallback={<div>Loading Movie....</div>}>
       <FilmPage params={params} />
     </Suspense>
   );

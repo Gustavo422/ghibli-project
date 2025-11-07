@@ -9,7 +9,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/Popover";
-import { FilmIcon, HomeIcon, MenuIcon, UserIcon, XIcon } from "lucide-react";
+import {
+  FilmIcon,
+  HomeIcon,
+  MenuIcon,
+  SearchIcon,
+  UserIcon,
+  XIcon,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function HamburguerMenu() {
@@ -60,10 +67,19 @@ export default function HamburguerMenu() {
                 </div>
               </Link>
 
-              <Link href="/films" className="flex items-center justify-center">
+              <Link
+                href="/films"
+                className="flex items-center justify-center pb-2"
+              >
                 <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
                   <FilmIcon />
                   Films
+                </div>
+              </Link>
+              <Link href="/search" className="flex items-center justify-center">
+                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
+                  <SearchIcon />
+                  Search
                 </div>
               </Link>
             </li>
