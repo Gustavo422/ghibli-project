@@ -22,9 +22,8 @@ export default function RootLayout({ children }) {
       className={`${rocknroll.variable} hide-scrollbar h-full`}
     >
       <body className="flex h-screen max-h-screen flex-col bg-slate-950 text-gray-200 antialiased">
-        <div className="mx-auto flex h-full flex-col items-center justify-center">
+        <div className="mx-auto flex h-full w-full flex-col items-center justify-center pt-14">
           <Header />
-
           {children}
         </div>
       </body>

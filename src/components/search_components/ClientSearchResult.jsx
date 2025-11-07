@@ -7,12 +7,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function ClientSearchResult({ term, open, setOpen }) {
+export default function ClientSearchResult({ term, open, setOpen, className }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    const MIN_LOADING = 400;
+
     if (!term) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setData([]);
@@ -20,15 +22,19 @@ export default function ClientSearchResult({ term, open, setOpen }) {
       setError(false);
       return;
     }
-
     setLoading(true);
     const controller = new AbortController();
+    const delay = new Promise((res) => setTimeout(res, MIN_LOADING));
 
-    fetch(`/api/search?query=${encodeURIComponent(term)}`, {
-      signal: controller.signal,
-    })
-      .then((res) => res.json())
-      .then(setData)
+    const fetchPromise = fetch(
+      `/api/search?query=${encodeURIComponent(term)}`,
+      {
+        signal: controller.signal,
+      },
+    ).then((res) => res.json());
+
+    Promise.all([fetchPromise, delay])
+      .then(([data]) => setData(data))
       .catch((err) => {
         if (err.name !== "AbortError") {
           console.error(err);
@@ -42,7 +48,7 @@ export default function ClientSearchResult({ term, open, setOpen }) {
 
   if (error) {
     return (
-      <div className="flex w-full flex-col items-center justify-center gap-y-3">
+      <div className="animate-fade-in flex w-full flex-col items-center justify-center gap-y-3">
         <h1 className="text-base text-slate-200">Someting went wrong...</h1>
         <Link href="/">
           <Button
@@ -63,7 +69,7 @@ export default function ClientSearchResult({ term, open, setOpen }) {
 
   if (loading) {
     return (
-      <div className="flex w-full items-center justify-center text-slate-300">
+      <div className="animate-fade-in m-3 flex w-full items-center justify-center text-slate-300">
         <h3 className="mr-3 animate-pulse text-2xl font-medium">
           Loading <span className="animate-ellipsis inline-block" />
         </h3>
@@ -76,7 +82,12 @@ export default function ClientSearchResult({ term, open, setOpen }) {
   }
   if (!loading && data.length > 0) {
     return (
-      <div className={clsx("min-w-full rounded-md border bg-slate-950 p-3")}>
+      <div
+        className={clsx(
+          "animate-fade-in min-w-full rounded-md border bg-slate-950 p-3",
+          className,
+        )}
+      >
         <div className="m-0 flex min-w-full flex-col overflow-hidden rounded-md p-0">
           {data.map((findedItems, i) => (
             <div
