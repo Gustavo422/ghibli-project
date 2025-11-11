@@ -1,4 +1,5 @@
 import FilmPage from "@/components/FilmPage";
+import LoadSkeleton from "@/components/LoadSkeleton";
 import { getFilmForId } from "@/lib/api";
 import { Suspense } from "react";
 /*
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }) {
 
 export default function Page({ params }) {
   return (
-    <Suspense fallback={<div>Loading Movie....</div>}>
+    <Suspense fallback={<LoadSkeleton />}>
       <FilmPage params={params} />
     </Suspense>
   );

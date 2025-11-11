@@ -6,7 +6,7 @@ export default function Logo() {
     <div className="flex h-[50px] items-center justify-center space-x-4">
       <Link
         href="/"
-        className="transition-200 relative h-[46px] w-[88px] transition-all hover:scale-105"
+        className="relative h-[46px] w-[88px] transition-all duration-200 hover:scale-105"
       >
         <Image
           src="/jiji-logo_02.png"

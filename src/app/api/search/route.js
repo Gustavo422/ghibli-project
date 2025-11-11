@@ -11,5 +11,6 @@ export async function GET(request) {
   if (results.length > 5) {
     results = results.slice(0, 5);
   }
+
   return Response.json(results, { status: 200 });
 }

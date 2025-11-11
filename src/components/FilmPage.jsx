@@ -4,7 +4,6 @@ import FreshTomatoIcon from "@/components/ui/svg/FreshTomatoIcon.svg";
 import RottenTomatoIcon from "@/components/ui/svg/RottenTomatoIcon.svg";
 import { getFilmForId } from "@/lib/api";
 import { CalendarIcon, TimerIcon } from "lucide-react";
-
 import Image from "next/image";
 
 export default async function FilmPage({ params }) {
@@ -28,91 +27,90 @@ export default async function FilmPage({ params }) {
     iconValue = score < 60 ? RottenTomatoIcon : FreshTomatoIcon;
   }
   return (
-    <div className="min-h-full min-w-full">
-      <div className="flex min-h-full min-w-full flex-col items-start justify-start">
-        <div className="relative flex h-screen w-screen flex-row items-start justify-center">
-          <div className="relative top-0">
-            <div className="absolute h-screen w-screen">
-              <Image
-                quality={20}
-                fill
-                src={datas?.movie_banner}
-                priority
-                alt={`Banner of the movie with id: ${id}`}
-                className="z-0 object-cover"
-              />
-              <div className="absolute bottom-0 left-0 z-1 h-screen w-full bg-linear-to-t from-slate-950 via-slate-950/90 to-slate-900/85" />
-            </div>
+    <div className="relative h-full w-full">
+      <div className="mt-64 flex h-full w-full flex-wrap items-center justify-start md:mt-80 md:pl-0 lg:pl-20">
+        <div className="absolute top-0 left-0 h-full w-full">
+          <Image
+            quality={20}
+            fill
+            src={datas?.movie_banner}
+            priority
+            alt={`Banner of the movie with id: ${id}`}
+            className="z-0 object-cover"
+          />
+          <div className="absolute bottom-0 left-0 z-1 h-screen w-full bg-linear-to-t from-slate-950 via-slate-950/90 to-slate-900/85" />
+        </div>
+
+        <div className="z-10 flex h-full w-full shrink-0 flex-col items-center justify-center gap-y-3 p-3 md:flex-row md:items-start md:justify-start">
+          <div className="relative h-[550px] w-[365px] shrink-0 cursor-pointer md:mr-10 md:h-[450px] md:w-[300px] md:pl-0">
+            <Image
+              width={365}
+              height={550}
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+              src={datas?.image}
+              alt={"Main Image"}
+              className="border-accent-foreground/60 rounded-lg border-2 brightness-75 transition-all duration-400 ease-out hover:scale-[1.01] hover:border-white hover:brightness-50"
+            />
           </div>
-          <div className="z-10 mt-36 flex h-full w-full flex-col items-center justify-center md:mt-80 md:pt-10">
-            <div className="flex h-screen w-screen flex-col lg:w-[80%] lg:flex-row">
-              <div className="relative h-[450px] w-[300px] shrink-0 pl-3 lg:mr-10 lg:h-96 lg:w-[255px] lg:pl-0">
-                <Image
-                  width={300}
-                  height={450}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                  src={datas?.image}
-                  alt={"Main Image"}
-                  className="rounded-lg border-white hover:border-2 hover:saturate-[.25]"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <h1 className="mt-3 pl-3 text-xl font-bold lg:pl-0 lg:text-3xl">
-                  {datas?.title}
-                </h1>
-                <p className="mt-2 flex flex-col pb-3 pl-3 text-sm sm:flex-row sm:text-base md:text-lg lg:mt-0 lg:gap-x-3 lg:pl-0">
-                  <span className="rocknroll">{datas?.original_title}</span>
-                  <span className="font-bold">
-                    ({datas?.original_title_romanised})
-                  </span>
-                </p>
-                <Separator className="bg-slate-100/90" />
-                <div className="mt-2 flex w-full flex-wrap gap-2 pl-3 lg:pl-0">
-                  <Badge
-                    className="gap-x-1 rounded-full border border-white bg-slate-900 p-2 hover:bg-slate-950"
-                    variant="default"
-                  >
-                    <div className="relative h-3 w-3 lg:h-[15px] lg:w-[15px]">
-                      <Image
-                        fill
-                        src={iconValue}
-                        alt={`${iconValue.toString().replace("T", " T")} Icon`}
-                      />
-                    </div>
-                    <p className="text-[14px] font-medium font-stretch-200% lg:text-[15px]">
-                      {datas?.rt_score}%
-                    </p>
-                  </Badge>
-                  <Badge
-                    className="gap-x-1 rounded-full border border-white bg-slate-900 p-2 hover:bg-slate-950"
-                    variant="default"
-                  >
-                    <CalendarIcon className="h-3 w-3 lg:h-3.5 lg:w-3.5" />
-                    <p className="text-[14px] font-medium font-stretch-200% lg:text-[15px]">
-                      {datas?.release_date}
-                    </p>
-                  </Badge>
-                  <Badge
-                    className="gap-x-1 rounded-full border border-white bg-slate-900 p-2 hover:bg-slate-950"
-                    variant="default"
-                  >
-                    <TimerIcon className="h-3.5 w-3.5 lg:h-[15px] lg:w-[15px]" />
-                    <p className="text-[14px] font-medium font-stretch-200% lg:text-[15px]">
-                      {datas?.running_time} minutes
-                    </p>
-                  </Badge>
-                </div>
-                <div className="pr-3 pl-3 md:mt-8 md:w-[800px] lg:pr-0 lg:pl-0">
-                  <h2 className="mt-4 mb-2 text-lg font-semibold text-gray-200 sm:text-xl md:mb-4 md:text-2xl lg:mt-0">
-                    Description:
-                  </h2>
-                  <p>{datas?.description}</p>
-                </div>
+
+          <div className="bg-accent-foreground/80 border-accent-foreground flex w-full flex-col gap-1 rounded-md border p-2 md:border-none md:bg-transparent">
+            <div className="gap-y-1">
+              <h1 className="font-serif text-2xl font-bold text-slate-200 font-stretch-extra-expanded md:text-3xl">
+                {datas?.title}
+              </h1>
+              <p className="text-ring flex gap-x-1.5 text-base md:gap-x-3 md:text-lg">
+                <span className="rocknroll font-light">
+                  {datas?.original_title}
+                </span>
+                <span className="font-medium">
+                  ({datas?.original_title_romanised})
+                </span>
+              </p>
+              <div className="mt-3.5 flex w-full flex-wrap gap-x-3">
+                <Badge
+                  className="border-ring flex h-8 items-center justify-center gap-x-1.5 rounded-md border bg-slate-900 p-2 transition-colors duration-200 hover:border-slate-600 hover:bg-slate-950 md:h-9"
+                  variant="default"
+                >
+                  <div className="relative h-4 w-4">
+                    <Image
+                      fill
+                      src={iconValue}
+                      alt={`${iconValue.toString().replace("T", " T")} Icon`}
+                    />
+                  </div>
+                  <p className="text-[16px] font-medium text-slate-200 font-stretch-200%">
+                    {datas?.rt_score}%
+                  </p>
+                </Badge>
+
+                <Badge
+                  className="border-ring flex h-8 items-center justify-center gap-x-1.5 rounded-md border bg-slate-900 p-2 transition-colors duration-200 hover:border-slate-600 hover:bg-slate-950 md:h-9"
+                  variant="default"
+                >
+                  <CalendarIcon className="h-4 w-4" />
+                  <p className="text-[16px] font-medium text-slate-200 font-stretch-200%">
+                    {datas?.release_date}
+                  </p>
+                </Badge>
+                <Badge
+                  className="border-ring flex h-8 items-center justify-center gap-x-1.5 rounded-md border bg-slate-900 p-2 transition-colors duration-200 hover:border-slate-600 hover:bg-slate-950 md:h-9"
+                  variant="default"
+                >
+                  <TimerIcon className="h-[18px] w-[18px]" />
+                  <p className="text-[16px] text-slate-200 font-stretch-200%">
+                    <span className="pr-0.5">{datas?.running_time}</span>minutes
+                  </p>
+                </Badge>
               </div>
             </div>
+            <Separator className="mt-4 mb-2 w-full bg-slate-600 sm:w-[95%] md:w-[90%]" />
+            <h3 className="text-xl font-medium text-slate-200 md:text-2xl">
+              Description:
+            </h3>
+            <p className="text-ring max-w-4xl">{datas?.description}</p>
           </div>
         </div>
       </div>
