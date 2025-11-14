@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="pt-BR"
-      className={`${rocknroll.variable} hide-scrollbar h-full`}
+      className={`${rocknroll.variable} hide-scrollbar min-h-full min-w-full`}
     >
-      <body className="flex h-screen max-h-screen flex-col bg-slate-950 text-gray-200 antialiased">
-        <div className="mx-auto flex h-full w-full flex-col items-center justify-center pt-14">
+      <body className="flex min-h-full min-w-full flex-col bg-slate-950 text-gray-200 antialiased">
+        <div className="mx-auto flex min-h-full w-full flex-col items-center justify-center pt-14">
           <Header />
           {children}
         </div>

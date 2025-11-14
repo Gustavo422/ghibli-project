@@ -1,0 +1,67 @@
+import BgImage from "@/components/film_page/_components/BgImage";
+import DescriptionSession from "@/components/film_page/_components/DescriptionSession";
+import FilmsBadges from "@/components/film_page/_components/FilmsBadges";
+import HighlitedElements from "@/components/film_page/_components/HighlitedElements";
+import InfoSession from "@/components/film_page/_components/InfoSession";
+import MainContent from "@/components/film_page/_components/MainContent";
+import MainImage from "@/components/film_page/_components/MainImage";
+import PageLayout from "@/components/film_page/_components/PageLayout";
+import ProductionTeam from "@/components/film_page/_components/ProductionTeam";
+import { Separator } from "@/components/ui/Separator";
+import FreshTomatoIcon from "@/components/ui/svg/FreshTomatoIcon.svg";
+import RottenTomatoIcon from "@/components/ui/svg/RottenTomatoIcon.svg";
+import { getFilmForId } from "@/lib/api";
+
+export default async function FilmPage({ params }) {
+  const { id } = await params;
+  const datas = await getFilmForId(
+    id,
+    "movie_banner",
+    "image",
+    "title",
+    "original_title",
+    "original_title_romanised",
+    "rt_score",
+    "release_date",
+    "description",
+    "running_time",
+    "director",
+    "producer",
+  );
+
+  let iconValue = FreshTomatoIcon;
+  const score = parseInt(datas?.rt_score);
+  if (!isNaN(score)) {
+    iconValue = score < 60 ? RottenTomatoIcon : FreshTomatoIcon;
+  }
+  return (
+    <div className="relative h-full w-full">
+      <PageLayout>
+        <BgImage movie_banner={datas?.movie_banner} id={id} />
+        <MainContent>
+          <MainImage image={datas?.image} />
+          <InfoSession>
+            <HighlitedElements
+              title={datas?.title}
+              original_title={datas?.original_title}
+              original_title_romanised={datas?.original_title_romanised}
+            >
+              <FilmsBadges
+                iconValue={iconValue}
+                rt_score={datas?.rt_score}
+                release_date={datas?.release_date}
+                running_time={datas?.running_time}
+              />
+            </HighlitedElements>
+            <Separator className="mt-4 mb-2 w-full bg-slate-600 sm:w-[95%] md:w-[90%]" />
+            <DescriptionSession description={datas?.description} />
+            <ProductionTeam
+              director={datas?.director}
+              producer={datas?.producer}
+            />
+          </InfoSession>
+        </MainContent>
+      </PageLayout>
+    </div>
+  );
+}
