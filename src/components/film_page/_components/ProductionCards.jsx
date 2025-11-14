@@ -5,7 +5,7 @@ export function CollaboratorsCard({ assign, name }) {
     <div className="border-accent-foreground group w-fit max-w-[152px] rounded-md border bg-slate-950 transition-all duration-400 ease-out hover:scale-105 md:bg-slate-950/80">
       <div className="relative mb-2 flex h-[150px] w-[150px] shrink-0 cursor-pointer flex-col items-center justify-center group-hover:brightness-50">
         <Image
-          quality={100}
+          quality={50}
           height={150}
           width={150}
           style={{

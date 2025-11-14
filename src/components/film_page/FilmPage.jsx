@@ -1,4 +1,5 @@
 import BgImage from "@/components/film_page/_components/BgImage";
+import Characters from "@/components/film_page/_components/Characters";
 import DescriptionSession from "@/components/film_page/_components/DescriptionSession";
 import FilmsBadges from "@/components/film_page/_components/FilmsBadges";
 import HighlitedElements from "@/components/film_page/_components/HighlitedElements";
@@ -27,6 +28,7 @@ export default async function FilmPage({ params }) {
     "running_time",
     "director",
     "producer",
+    "people",
   );
 
   let iconValue = FreshTomatoIcon;
@@ -59,6 +61,7 @@ export default async function FilmPage({ params }) {
               director={datas?.director}
               producer={datas?.producer}
             />
+            <Characters people={datas?.people} />
           </InfoSession>
         </MainContent>
       </PageLayout>
