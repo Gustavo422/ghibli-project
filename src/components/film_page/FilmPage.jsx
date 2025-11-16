@@ -1,9 +1,11 @@
 import BgImage from "@/components/film_page/_components/BgImage";
 import Characters from "@/components/film_page/_components/Characters";
-import DescriptionSession from "@/components/film_page/_components/DescriptionSession";
+import DescriptionSession from "@/components/film_page/_components/Description";
+import ExtraInfos from "@/components/film_page/_components/ExtraInfos";
 import FilmsBadges from "@/components/film_page/_components/FilmsBadges";
 import HighlitedElements from "@/components/film_page/_components/HighlitedElements";
 import InfoSession from "@/components/film_page/_components/InfoSession";
+import MainCard from "@/components/film_page/_components/MainCard";
 import MainContent from "@/components/film_page/_components/MainContent";
 import MainImage from "@/components/film_page/_components/MainImage";
 import PageLayout from "@/components/film_page/_components/PageLayout";
@@ -41,28 +43,32 @@ export default async function FilmPage({ params }) {
       <PageLayout>
         <BgImage movie_banner={datas?.movie_banner} id={id} />
         <MainContent>
-          <MainImage image={datas?.image} />
-          <InfoSession>
-            <HighlitedElements
-              title={datas?.title}
-              original_title={datas?.original_title}
-              original_title_romanised={datas?.original_title_romanised}
-            >
-              <FilmsBadges
-                iconValue={iconValue}
-                rt_score={datas?.rt_score}
-                release_date={datas?.release_date}
-                running_time={datas?.running_time}
-              />
-            </HighlitedElements>
-            <Separator className="mt-4 mb-2 w-full bg-slate-600 sm:w-[95%] md:w-[90%]" />
-            <DescriptionSession description={datas?.description} />
+          <MainCard>
+            <MainImage image={datas?.image} />
+            <InfoSession>
+              <HighlitedElements
+                title={datas?.title}
+                original_title={datas?.original_title}
+                original_title_romanised={datas?.original_title_romanised}
+              >
+                <FilmsBadges
+                  iconValue={iconValue}
+                  rt_score={datas?.rt_score}
+                  release_date={datas?.release_date}
+                  running_time={datas?.running_time}
+                />
+              </HighlitedElements>
+              <Separator className="mt-4 mb-2 w-full bg-slate-600 sm:w-[95%] md:w-[90%]" />
+              <DescriptionSession description={datas?.description} />
+            </InfoSession>
+          </MainCard>
+          <ExtraInfos>
+            <Characters people={datas?.people} />
             <ProductionTeam
               director={datas?.director}
               producer={datas?.producer}
             />
-            <Characters people={datas?.people} />
-          </InfoSession>
+          </ExtraInfos>
         </MainContent>
       </PageLayout>
     </div>

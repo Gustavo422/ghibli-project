@@ -5,8 +5,8 @@ import {
 
 export default function ProductionTeam({ director, producer }) {
   return (
-    <>
-      <h3 className="my-3 text-xl font-medium text-slate-200 md:my-0 md:text-2xl">
+    <div className="order-1 w-[90%] md:order-2">
+      <h3 className="py-3 text-xl font-medium text-slate-200 md:my-0 md:text-2xl">
         Production team:
       </h3>
       <div className="flex w-fit flex-wrap gap-x-3 gap-y-3">
@@ -17,6 +17,6 @@ export default function ProductionTeam({ director, producer }) {
         />
         <ProducersCards producers={producer} />
       </div>
-    </>
+    </div>
   );
 }

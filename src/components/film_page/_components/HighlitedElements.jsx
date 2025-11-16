@@ -5,7 +5,7 @@ export default function HighlitedElements({
   children,
 }) {
   return (
-    <div className="gap-y-1">
+    <div className="gap-y-1 md:mt-6">
       <h1 className="font-serif text-2xl font-bold text-slate-200 font-stretch-extra-expanded md:text-3xl">
         {title}
       </h1>
