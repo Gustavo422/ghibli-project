@@ -70,3 +70,17 @@ export async function getFieldsFromAllFilms(...fields) {
     throw new Error(`Invalid fields: ${fields}`);
   }
 }
+
+export async function getFilmsForPagination(startsIn, endsIn, ...fields) {
+  const fieldsValidation = fields.every((item) => FIELDS.has(item));
+  const res = await getFilms();
+  if (fieldsValidation && startsIn > 0 && endsIn < res.length) {
+    const result = res.map((item) =>
+      Object.fromEntries(fields.map((key) => [key, item[key]])),
+    );
+    const paginatedResult = result.slice(startsIn, endsIn);
+    return paginatedResult;
+  } else {
+    throw new Error(`Invalid fields!`);
+  }
+}
