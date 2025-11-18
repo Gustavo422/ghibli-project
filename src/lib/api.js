@@ -84,3 +84,9 @@ export async function getFilmsForPagination(startsIn, endsIn, ...fields) {
     throw new Error(`Invalid fields!`);
   }
 }
+
+export async function verifyId(id) {
+  const res = await getFilms();
+  const idValidation = res.some((item) => item?.id === id);
+  return idValidation;
+}
