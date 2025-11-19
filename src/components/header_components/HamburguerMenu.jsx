@@ -24,9 +24,14 @@ export default function HamburguerMenu() {
 
   return (
     <>
-      <Popover open={open} onOpenChange={setOpen} className="w-auto p-0">
+      <Popover
+        open={open}
+        onOpenChange={setOpen}
+        delayDuration={300}
+        className="w-auto p-0"
+      >
         <PopoverTrigger
-          className="flex h-full w-full cursor-pointer items-center justify-center border border-white/30 transition-all duration-200 hover:scale-105 hover:border-slate-600 hover:bg-slate-100/30"
+          className="border-accent-foreground flex h-full w-full cursor-pointer items-center justify-center border transition-all duration-200 hover:scale-105 hover:border-slate-600 hover:bg-slate-100/30"
           asChild
         >
           <Button
@@ -43,7 +48,7 @@ export default function HamburguerMenu() {
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className="w-full rounded-md border border-white/80 bg-slate-950"
+          className="border-ring w-full rounded-md border bg-slate-900/40 backdrop-blur-sm"
           side="bottom"
           align="start"
           style={{ transform: "translateX(-13px) translateY(17px)" }}

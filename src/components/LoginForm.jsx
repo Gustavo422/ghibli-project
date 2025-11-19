@@ -1,4 +1,5 @@
 "use client";
+import { SessionProvider } from "next-auth/react";
 
 import SignIn from "@/components/SignIn";
 import { Button } from "@/components/ui/Button";
@@ -20,8 +21,8 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex flex-col gap-6">
-      <Card>
+    <SessionProvider>
+      <Card className="border-accent-foreground h-full w-[400px] border-2">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
@@ -31,22 +32,31 @@ export default function LoginForm() {
         <CardContent>
           <form>
             <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+              <div className="flex flex-col items-start justify-center">
+                <Label className="mb-2" htmlFor="email">
+                  Email
+                </Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="email@example.com"
+                  className="border-accent-foreground border"
                 />
               </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
+              <div className="flex w-full flex-col">
+                <div className="mb-2 flex w-full items-center justify-between gap-x-36">
                   <Label htmlFor="password">Password</Label>
+                  <Link
+                    href="/forgot-password"
+                    className="mt-0 mr-auto text-sm underline-offset-4 hover:text-blue-600 hover:underline"
+                  >
+                    Forgot your password?
+                  </Link>
                 </div>
                 <div className="relative">
                   <Input
                     id="password"
-                    className="pr-8"
+                    className="border-accent-foreground border pr-8"
                     placaeholder="type your password..."
                     type={showPassword ? "text" : "password"}
                     autoComplete={showPassword ? "on" : "newPassword"}
@@ -63,21 +73,17 @@ export default function LoginForm() {
                     )}
                   </button>
                 </div>
-                <Link
-                  href="/forgot-password"
-                  className="mt-0 mr-auto text-sm underline-offset-4 hover:text-blue-600 hover:underline"
-                >
-                  Forgot your password?
-                </Link>
               </div>
-              <Button type="submit" className="w-full">
-                Login
-              </Button>
-              <SignIn />
+              <div className="flex w-full flex-col gap-y-3">
+                <Button type="submit" className="h-11 w-full">
+                  Login
+                </Button>
+                <SignIn />
+              </div>
             </div>
           </form>
         </CardContent>
       </Card>
-    </div>
+    </SessionProvider>
   );
 }

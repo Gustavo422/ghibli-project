@@ -1,8 +1,10 @@
 import LoginForm from "@/components/LoginForm";
+import { Skeleton } from "@/components/ui/Skeleton";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Login",
-  description: "Session responsible for User's Login and SigIn",
+  description: "Session responsible for User's Login and SignIn",
   openGraph: {
     title: "LogIn",
     description: "LogIn page",
@@ -18,17 +20,18 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Authentication Session",
-    description: "LogIn, SigIn and Recovery Account",
+    description: "LogIn, SignIn and Recovery Account",
     images: ["/openGraph_banner.png"],
   },
 };
-
 export default function Page() {
   return (
-    <div className="flex items-center justify-center">
-      <div className="w-full max-w-sm">
+    <main className="flex h-full w-full flex-col items-center justify-center py-5 text-center">
+      <Suspense
+        fallback={<Skeleton className="h-[400px] w-[400px] bg-slate-900" />}
+      >
         <LoginForm />
-      </div>
-    </div>
+      </Suspense>
+    </main>
   );
 }

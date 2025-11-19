@@ -58,16 +58,16 @@ export function SearchForm() {
     <>
       {!mobileDetection && (
         <div>
-          <form className="rounded-md border border-slate-400 transition-all duration-200 ease-out focus-within:scale-105 hover:scale-105">
+          <form className="border-ring rounded-md border transition-all duration-200 ease-out focus-within:scale-105 hover:scale-105">
             <div className="flex h-full w-72 items-center justify-start">
               <Label htmlFor="search" className="sr-only">
                 Search
               </Label>
-              <SearchIcon className="pointer-events-none order-1 mx-1.5 rounded-full text-slate-400 transition-all duration-200 ease-out select-none" />
+              <SearchIcon className="text-ring pointer-events-none order-1 mx-1.5 rounded-full transition-all duration-200 ease-out select-none" />
               <Input
                 id="search"
                 placeholder="Type to search your favorites films..."
-                className="order-2 m-0! h-8 w-full gap-0! rounded-full border-transparent! p-1! transition-all duration-200 ease-out focus-visible:ring-0!"
+                className="order-2 m-0 h-8 w-full rounded-none rounded-r-md border-0 p-px focus-visible:ring-0!"
                 defaultValue={term}
                 onChange={(e) => {
                   const v = e.target.value;
@@ -90,7 +90,7 @@ export function SearchForm() {
         <Popover open={open} onOpenChange={setOpen} className="w-full">
           <form>
             <PopoverTrigger
-              className="flex h-full w-full items-center justify-center border border-white/30 bg-black/30 transition-all duration-200 hover:border-black/30 hover:bg-slate-100/30"
+              className="border-accent-foreground flex h-full w-full items-center justify-center border bg-black/30 transition-all duration-200 hover:border-black/30 hover:bg-slate-100/30"
               asChild
             >
               <Button
@@ -129,7 +129,7 @@ export function SearchForm() {
                   <Input
                     id="search"
                     placeholder="Type to search your favorites films..."
-                    className="order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 text-slate-400 focus-visible:ring-0!"
+                    className="text-ring order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 focus-visible:ring-0!"
                     defaultValue={term}
                     type="search"
                     onChange={(e) => {

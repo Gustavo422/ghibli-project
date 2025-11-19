@@ -11,10 +11,8 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div className="flex items-center justify-center">
-      <div className="w-full max-w-sm">
-        <ForgotPassForm />
-      </div>
+    <div className="flex min-h-full min-w-full flex-col items-center justify-center text-gray-200 antialiased">
+      <ForgotPassForm />
     </div>
   );
 }

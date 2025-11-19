@@ -31,19 +31,14 @@ export default function Profile({ className }) {
   const [open, setOpen] = useState(false);
   return (
     <div className={clsx("relative", className)}>
-      <Popover
-        open={open}
-        onOpenChange={setOpen}
-        delayDuration={200}
-        className="bg-black"
-      >
+      <Popover open={open} onOpenChange={setOpen} delayDuration={300}>
         <PopoverTrigger asChild className="flex items-center justify-center">
           <button
             type="button"
             aria-label="Open profile menu"
             className="relative flex aspect-square h-10 items-center justify-center rounded-full p-0"
           >
-            <Avatar className="h-full w-full cursor-pointer border-[3px] border-double border-white/30 transition-all duration-200 ease-out hover:scale-110 hover:border-blue-500/80">
+            <Avatar className="border-accent-foreground h-full w-full cursor-pointer border-[3px] border-double transition-all duration-200 ease-out hover:scale-110 hover:border-blue-500/80">
               <AvatarImage
                 alt={`${username} profile picture`}
                 src={image}
@@ -59,18 +54,17 @@ export default function Profile({ className }) {
           align="center"
           className="m-0 mt-[18px] mr-16 gap-0 rounded-md border-none p-0"
         >
-          <Card className="h-full w-full rounded-md border border-white/80">
+          <Card className="border-ring h-full w-full rounded-md border bg-transparent backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-center text-lg">{name}</CardTitle>
               <CardDescription className="text-center text-sm">
-                <p className="text-slate-400">You want to Login Out?</p>
+                <p className="text-ring">You want to Login Out?</p>
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-row items-start gap-2">
+            <CardContent className="flex items-center justify-center gap-2">
               <Button
-                className="flex items-center gap-2 px-3 py-2 text-[15px]"
+                className="border-ring flex cursor-pointer items-center gap-x-2 border bg-red-700 px-3 py-2 text-[15px] transition-all duration-300 ease-out hover:scale-105 hover:bg-red-800"
                 onClick={() => signOut()}
-                variant="destructive"
                 type="button"
               >
                 <LogOutIcon className="h-4 w-4 stroke-current" />
@@ -79,7 +73,7 @@ export default function Profile({ className }) {
               <Button
                 onClick={() => setOpen(false)}
                 variant="ghost"
-                className="flex items-center gap-2 border border-white p-3 px-3 py-2 text-[15px]"
+                className="border-ring flex cursor-pointer items-center gap-x-2 border px-3 py-2 text-[15px] transition-transform duration-300 ease-out hover:scale-105"
                 type="button"
               >
                 <CircleXIcon className="text-current" strokeWidth={2} /> Cancel
