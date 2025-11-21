@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/Popover";
+import TotoroIcon from "@/components/ui/svg/TotoroIcon";
 import {
   FilmIcon,
   HomeIcon,
@@ -71,7 +72,11 @@ export default function HamburguerMenu() {
                   Login
                 </div>
               </Link>
-
+              <Link href="/characters">
+                <div className="flex w-36 items-center justify-start gap-x-2 rounded-md p-2 transition-all duration-200 hover:rounded-lg hover:bg-slate-900">
+                  <TotoroIcon /> Characters
+                </div>
+              </Link>
               <Link
                 href="/films"
                 className="flex items-center justify-center pb-2"

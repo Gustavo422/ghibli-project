@@ -72,17 +72,26 @@ export async function getFieldsFromAllFilms(...fields) {
 }
 
 export async function getFilmsForPagination(startsIn, endsIn, ...fields) {
-  const fieldsValidation = fields.every((item) => FIELDS.has(item));
-  const res = await getFilms();
-  if (fieldsValidation && startsIn > 0 && endsIn < res.length) {
-    const result = res.map((item) =>
-      Object.fromEntries(fields.map((key) => [key, item[key]])),
-    );
-    const paginatedResult = result.slice(startsIn, endsIn);
-    return paginatedResult;
-  } else {
-    throw new Error(`Invalid fields!`);
+  if (!Number.isInteger(startsIn) || !Number.isInteger(endsIn)) {
+    throw new Error("startsIn and endsIn must to be Integers");
   }
+
+  const fieldsValid =
+    fields.length === 0 || fields.every((item) => FIELDS.has(item));
+
+  if (!fieldsValid) throw new Error("Invalid fields");
+  const res = await getFilms();
+
+  if (startsIn < 0 || endsIn > res.length || startsIn >= endsIn) {
+    throw new Error("Invalid interval");
+  }
+
+  const pageSlice = res.slice(startsIn, endsIn);
+  const result = pageSlice.map((item) =>
+    Object.fromEntries(fields.map((key) => [key, item[key]])),
+  );
+
+  return result;
 }
 
 export async function verifyId(id) {
