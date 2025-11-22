@@ -8,14 +8,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
+import { slugCreator } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default function FilmCard({ id, image, title, description }) {
+  const slug = slugCreator(title);
   return (
     <Card className="group border-accent-foreground hover:border-ring-accent w-[190px] rounded-md border transition-all duration-200 hover:scale-[1.01] md:w-[280px] lg:w-[300px]">
-      <Link href={`/films/${id}`}>
+      <Link href={`/films/${slug}`}>
         <CardContent className="flex w-full flex-col p-0">
           <Suspense fallback={<ImageSkeleton />}>
             <Image

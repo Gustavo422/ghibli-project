@@ -13,15 +13,12 @@ import ProductionTeam from "@/components/film_page/_components/ProductionTeam";
 import { Separator } from "@/components/ui/Separator";
 import FreshTomatoIcon from "@/components/ui/svg/FreshTomatoIcon.svg";
 import RottenTomatoIcon from "@/components/ui/svg/RottenTomatoIcon.svg";
-import { getFilmForId, verifyId } from "@/lib/api";
-import { redirect } from "next/navigation";
+import { compareIdAndSlug, getFilmForId } from "@/lib/api";
 
 export default async function FilmPage({ params }) {
-  const { id } = await params;
-  const idVerification = await verifyId(id);
-  if (!idVerification) {
-    redirect("/films");
-  }
+  const { slug } = await params;
+  const id = compareIdAndSlug(slug);
+
   const datas = await getFilmForId(
     id,
     "movie_banner",
