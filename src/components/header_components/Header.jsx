@@ -13,7 +13,7 @@ import { Suspense } from "react";
 export default async function Header() {
   return (
     <Suspense>
-      <header className="fixed top-0 z-50 h-12">
+      <header className="fixed top-1 z-50 flex h-12 w-full items-center justify-center p-1">
         <nav className="bg-black/30 px-1 py-1 backdrop-blur-sm lg:px-2.5">
           <NavigationMenu className="flex h-full items-center">
             <NavigationMenuList className="h-full w-screen justify-between px-3">
@@ -36,7 +36,7 @@ export default async function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
-        <hr className="border-t border-slate-600" />
+        <hr className="border-accent-foreground border-t" />
       </header>
     </Suspense>
   );
