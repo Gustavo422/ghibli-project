@@ -13,7 +13,8 @@ import ProductionTeam from "@/components/film_page/_components/ProductionTeam";
 import { Separator } from "@/components/ui/Separator";
 import FreshTomatoIcon from "@/components/ui/svg/FreshTomatoIcon.svg";
 import RottenTomatoIcon from "@/components/ui/svg/RottenTomatoIcon.svg";
-import { compareIdAndSlug, getFilmForId } from "@/lib/api";
+import { getFilmForId } from "@/lib/api";
+import { compareIdAndSlug } from "@/lib/utils";
 
 export default async function FilmPage({ params }) {
   const { slug } = await params;

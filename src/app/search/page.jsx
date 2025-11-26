@@ -36,7 +36,7 @@ export default function SearchPage() {
                 defaultValue={term}
               />
             </div>
-            <div className={clsx("bg-slate h-20", { "h-fit!": term || open })}>
+            <div className={clsx("bg-slate h-fit")}>
               <hr className={clsx("sr-only", { "not-sr-only!": open })} />
               <Suspense>
                 <ClientSearchResult

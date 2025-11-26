@@ -1,6 +1,7 @@
 "use client";
 import EmptySearch from "@/components/search_components/EmptySearch";
 import { Button } from "@/components/ui/Button";
+import { slugCreator } from "@/lib/utils";
 import { clsx } from "clsx";
 import { HomeIcon } from "lucide-react";
 import Image from "next/image";
@@ -95,7 +96,7 @@ export default function ClientSearchResult({ term, open, setOpen, className }) {
               className="m-2 flex flex-col rounded-md border transition-all duration-200 hover:scale-[1.01]"
             >
               <Link
-                href={`/films/${findedItems?.item?.id}`}
+                href={`/films/${slugCreator(findedItems?.item?.title)}`}
                 className="flex rounded-md hover:bg-black/50"
                 onClick={() => setOpen(false)}
               >

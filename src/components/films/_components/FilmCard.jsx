@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { slugCreator } from "@/lib/api";
+import { slugCreator } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
