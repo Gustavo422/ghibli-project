@@ -57,7 +57,7 @@ export default function Home() {
           <div className="flex w-full flex-col flex-wrap items-center justify-center gap-2">
             <div className="relative aspect-video h-auto w-full">
               <Image
-                src="/homePageBg.png"
+                src="/homepagebg.png"
                 alt="Main Image"
                 width={1440}
                 height={810}
