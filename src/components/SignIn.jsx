@@ -7,7 +7,7 @@ import { signIn, useSession } from "next-auth/react";
 
 export default function SignIn() {
   const { data: session, status } = useSession();
-  //console.log("Session: " + session + "\nStatus: " + status);
+  console.log("Session: " + session + "\nStatus: " + status);
   if (status == "unauthenticated" || status == "loading") {
     return (
       <>

@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
+import { Separator } from "@/components/ui/Separator";
 import { ArrowUpRightIcon, FilmIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,17 +12,17 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-full min-w-full font-sans">
-      <main className="flex h-full w-full flex-col items-center justify-center gap-4 px-3 md:gap-10 md:px-6">
-        <div className="mt-5 flex w-full flex-col gap-y-5 sm:w-[90%] md:mt-10 md:w-[70%] lg:w-[60%]">
-          <div className="flex w-full flex-col gap-y-5">
+    <div className="h-full w-full font-sans">
+      <main className="flex flex-col items-center justify-center gap-4">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-4 sm:px-0">
+          <div className="mt-6 flex w-full flex-col gap-y-5">
             <div className="flex flex-col items-center justify-center gap-y-3 px-6 md:gap-y-5">
-              <h1 className="text-accent text-center text-3xl font-bold font-stretch-expanded md:text-5xl">
-                A house to Studio Ghibli fans
+              <h1 className="text-accent text-center text-2xl font-bold font-stretch-expanded md:text-4xl">
+                The house for Studio Ghibli fans
               </h1>
               <h6 className="max-w-xl text-center text-base">
-                Found Films, Characters, Producers, Directors and much more
-                about the Ghibli Films
+                Found films, characters, producers, directors and more infos
+                about Ghibli Films
               </h6>
             </div>
             <div className="flex items-center justify-center gap-x-5">
@@ -31,7 +32,7 @@ export default function Home() {
                   type="button"
                   variant="default"
                 >
-                  <p className="ml-3 text-sm font-normal">Make the login</p>
+                  <p className="ml-3 text-sm font-normal">Make a login</p>
                   <div className="flex aspect-square h-full w-fit items-center justify-center rounded-full bg-slate-950 p-2">
                     <ArrowUpRightIcon className="text-accent h-4 w-4 rounded-full" />
                   </div>
@@ -54,7 +55,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="flex w-full flex-col flex-wrap items-center justify-center gap-2">
+          <div className="flex max-w-2xl flex-col flex-wrap items-center justify-center gap-2">
             <div className="relative aspect-video h-auto w-full">
               <Image
                 src="/homepagebg.png"
@@ -69,24 +70,15 @@ export default function Home() {
               <div className="flex h-full items-center justify-center gap-x-3">
                 <div className="flex h-full -space-x-2">
                   <Avatar className="aspect-square h-full w-auto">
-                    <AvatarImage
-                      src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/byKAndF6KQSDpGxp1mTr23jPbYp.jpg"
-                      alt="@shadcn"
-                    />
+                    <AvatarImage src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/byKAndF6KQSDpGxp1mTr23jPbYp.jpg" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                   <Avatar className="aspect-square h-full w-auto">
-                    <AvatarImage
-                      src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/7nO5DUMnGUuXrA4r2h6ESOKQRrx.jpg"
-                      alt="@maxleiter"
-                    />
+                    <AvatarImage src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/7nO5DUMnGUuXrA4r2h6ESOKQRrx.jpg" />
                     <AvatarFallback>LR</AvatarFallback>
                   </Avatar>
                   <Avatar className="aspect-square h-full w-auto">
-                    <AvatarImage
-                      src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg"
-                      alt="@evilrabbit"
-                    />
+                    <AvatarImage src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg" />
                     <AvatarFallback>ER</AvatarFallback>
                   </Avatar>
                 </div>
@@ -94,7 +86,11 @@ export default function Home() {
                   21+ movies for Studio Ghibli
                 </p>
               </div>
-              <div className="text-ring flex items-center justify-center gap-x-4 text-sm">
+              <Separator
+                orientation="vertical"
+                className="bg-accent-foreground"
+              />
+              <div className="text-ring mt-2 flex items-center justify-center gap-x-2 text-sm sm:mt-0">
                 <p>Get infos about Studio Ghibli</p>
                 <Link href="/films">
                   <Button
@@ -110,7 +106,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div></div>
         </div>
       </main>
     </div>
