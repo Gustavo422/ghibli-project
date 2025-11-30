@@ -25,7 +25,7 @@ export default function SearchPage() {
             <div className="flex items-center justify-start gap-3 px-3">
               <SearchIcon />
               <Input
-                className="order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 text-slate-400 shadow-none! focus-visible:ring-0!"
+                className="text-ring order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 shadow-none! focus-visible:ring-0!"
                 placeholder="Type to search your favorite movies..."
                 type="form"
                 onChange={(e) => {

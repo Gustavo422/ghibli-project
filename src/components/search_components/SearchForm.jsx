@@ -111,9 +111,9 @@ export function SearchForm() {
               align="center"
               style={{ transform: "translateY(17px)" }}
             >
-              <div className="flex h-full w-[99%] flex-col gap-3 rounded-md border bg-slate-950 p-4">
+              <div className="border-accent-foreground flex h-full w-[98%] flex-col gap-3 rounded-md border bg-slate-950 p-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-center text-lg font-semibold text-slate-200">
+                  <h3 className="text-ring text-center text-lg font-semibold">
                     Search Films for Studio Ghibli
                   </h3>
                   <Button
@@ -122,24 +122,23 @@ export function SearchForm() {
                     onClick={() => setOpen(false)}
                     className="m-0! mb-1! cursor-pointer gap-0! bg-transparent! p-0! transition-all duration-200 ease-out hover:scale-120"
                   >
-                    <XIcon className="rounded-md bg-slate-900 p-1 text-slate-200" />
+                    <XIcon className="text-accent rounded-md bg-slate-900 p-1" />
                   </Button>
                 </div>
-                <div className="relative flex items-center justify-center gap-2 rounded-md border border-slate-200 p-1 px-2">
+                <div className="border-accent-foreground relative flex items-center justify-center gap-2 rounded-md border p-1 px-2">
                   <Input
                     id="search"
                     placeholder="Type to search your favorites films..."
                     className="text-ring order-2 m-0! h-8 w-full gap-0! border-none! p-0! pl-7 focus-visible:ring-0!"
                     defaultValue={term}
-                    type="search"
                     onChange={(e) => {
                       const v = e.target.value;
                       handleSearch(v);
                     }}
                   />
-                  <SearchIcon className="pointer-events-none order-1 text-slate-200 select-none" />
+                  <SearchIcon className="text-ring pointer-events-none order-1 select-none" />
                 </div>
-                <ClientSearchResult term={term || ""} />
+                <ClientSearchResult term={term} />
               </div>
             </PopoverContent>
           </form>

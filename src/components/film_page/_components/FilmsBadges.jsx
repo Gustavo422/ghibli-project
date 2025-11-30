@@ -21,7 +21,7 @@ export default function FilmsBadges({
             alt={`${iconValue.toString().replace("T", " T")} Icon`}
           />
         </div>
-        <p className="text-[16px] font-medium text-slate-200 font-stretch-200%">
+        <p className="text-accent text-[16px] font-medium font-stretch-200%">
           {rt_score}%
         </p>
       </Badge>
@@ -31,7 +31,7 @@ export default function FilmsBadges({
         variant="default"
       >
         <CalendarIcon className="h-4 w-4" />
-        <p className="text-[16px] font-medium text-slate-200 font-stretch-200%">
+        <p className="text-accent text-[16px] font-medium font-stretch-200%">
           {release_date}
         </p>
       </Badge>
@@ -40,7 +40,7 @@ export default function FilmsBadges({
         variant="default"
       >
         <TimerIcon className="h-[18px] w-[18px]" />
-        <p className="text-[16px] text-slate-200 font-stretch-200%">
+        <p className="text-accent text-[16px] font-stretch-200%">
           <span className="pr-0.5">{running_time}</span>minutes
         </p>
       </Badge>

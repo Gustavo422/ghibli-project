@@ -67,9 +67,9 @@ export default function LoginForm() {
                     type="button"
                   >
                     {!showPassword ? (
-                      <EyeIcon className="h-4 w-4 text-slate-200" />
+                      <EyeIcon className="text-accent h-4 w-4" />
                     ) : (
-                      <EyeOffIcon className="h-4 w-4 text-slate-200" />
+                      <EyeOffIcon className="text-accent h-4 w-4" />
                     )}
                   </button>
                 </div>

@@ -29,7 +29,7 @@ export default function ClientSearchResult({ term, open, setOpen, className }) {
     return (
       <div
         className={clsx(
-          "animate-fade-in min-w-full rounded-md border bg-slate-950 p-3",
+          "animate-fade-in border-accent-foreground min-w-full rounded-md border bg-slate-950 p-3",
           className,
         )}
       >

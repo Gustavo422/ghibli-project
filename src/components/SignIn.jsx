@@ -13,7 +13,7 @@ export default function SignIn() {
       <>
         <Button
           variant="secondary"
-          className="flex h-11 gap-3 border border-white"
+          className="border-accent flex h-11 gap-3 border"
           onClick={() => signIn("google", { redirectTo: "/" })}
           type="button"
         >

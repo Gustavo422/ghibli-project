@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main className="flex h-full w-full flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-9xl text-slate-200">404</h2>
+        <h2 className="text-accent text-9xl">404</h2>
         <blockquote className="text-4xl text-gray-400">
           Not found Page
         </blockquote>

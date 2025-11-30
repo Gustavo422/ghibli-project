@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function ErrorResult({ setOpen }) {
   return (
     <div className="animate-fade-in flex w-full flex-col items-center justify-center gap-y-3">
-      <h1 className="text-base text-slate-200">Someting went wrong...</h1>
+      <h1 className="text-accent text-base">Someting went wrong...</h1>
       <Link href="/">
         <Button
           variant="destructive"
@@ -13,8 +13,8 @@ export default function ErrorResult({ setOpen }) {
           type="button"
           onClick={() => setOpen(false)}
         >
-          <HomeIcon className="text-slate-200" />
-          <p className="text-[15px] font-medium text-slate-200">
+          <HomeIcon className="text-accent" />
+          <p className="text-accent text-[15px] font-medium">
             Back to home Page
           </p>
         </Button>

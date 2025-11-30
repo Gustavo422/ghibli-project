@@ -27,9 +27,9 @@ export default async function Characters({ people }) {
     .filter((r) => r.status == "fulfilled")
     .map((r) => r.value);
   return (
-    <div className="order-2 mt-3 flex w-fit flex-col md:order-1 md:w-[95%]">
+    <div className="order-2 mt-3 flex w-fit flex-col md:order-1 md:w-full">
       <div className="flex flex-col gap-y-3 md:justify-center">
-        <h3 className="text-start text-xl font-medium text-slate-200 md:w-[90%] md:text-2xl">
+        <h3 className="text-accent text-start text-xl font-medium md:w-[90%] md:text-2xl">
           Characters:
         </h3>
         <div className="flex flex-wrap gap-4 md:w-full">

@@ -14,7 +14,7 @@ export default function Logo() {
           quality={100}
           priority
           alt="Logo"
-          className="object-cover brightness-200 drop-shadow-white"
+          className="drop-shadow-ring object-cover brightness-200"
         />
       </Link>
       {/*<Separator orientation="vertical" className="h-[90%] w-px rounded-lg bg-slate-600">*/}
