@@ -18,7 +18,7 @@ export default function SearchPage() {
     <main className="flex h-full w-full flex-col items-center justify-start py-4">
       <div className="flex h-full w-full flex-col items-center justify-start gap-3">
         <h2 className="text-center text-2xl md:text-3xl">
-          Search for films, characters, director and much more!
+          Search for films, characters, directors and much more!
         </h2>
         <div className="flex w-[90%] items-center justify-center gap-2 rounded-md bg-slate-900 sm:w-[80%] md:w-[70%] lg:w-[60%]">
           <form className="flex w-full flex-col rounded-md border">

@@ -18,11 +18,10 @@ export default function Home() {
           <div className="mt-6 flex w-full flex-col gap-y-5">
             <div className="flex flex-col items-center justify-center gap-y-3 px-6 md:gap-y-5">
               <h1 className="text-accent text-center text-2xl font-bold font-stretch-expanded md:text-4xl">
-                The house for Studio Ghibli fans
+                The home for Studio Ghibli fans
               </h1>
               <h6 className="max-w-xl text-center text-base">
-                Found films, characters, producers, directors and more infos
-                about Ghibli Films
+                Discover films, characters, producers, directors, and much more.
               </h6>
             </div>
             <div className="flex items-center justify-center gap-x-5">
@@ -32,7 +31,7 @@ export default function Home() {
                   type="button"
                   variant="default"
                 >
-                  <p className="ml-3 text-sm font-normal">Make a login</p>
+                  <p className="ml-3 text-sm font-normal">Sign In</p>
                   <div className="flex aspect-square h-full w-fit items-center justify-center rounded-full bg-slate-950 p-2">
                     <ArrowUpRightIcon className="text-accent h-4 w-4 rounded-full" />
                   </div>
@@ -46,7 +45,7 @@ export default function Home() {
                   variant="secondary"
                 >
                   <p className="text-accent-foreground ml-3 text-sm font-normal">
-                    Go to Films
+                    Go to the Films
                   </p>
                   <div className="bg-accent-foreground flex aspect-square h-full w-fit items-center justify-center rounded-full">
                     <FilmIcon className="text-accent h-4 w-4 rounded-full" />
@@ -82,22 +81,20 @@ export default function Home() {
                     <AvatarFallback>ER</AvatarFallback>
                   </Avatar>
                 </div>
-                <p className="text-ring text-sm">
-                  21+ movies for Studio Ghibli
-                </p>
+                <p className="text-ring text-sm">21+ Studio Ghibli movies.</p>
               </div>
               <Separator
                 orientation="vertical"
                 className="bg-accent-foreground"
               />
               <div className="text-ring mt-2 flex items-center justify-center gap-x-2 text-sm sm:mt-0">
-                <p>Get infos about Studio Ghibli</p>
+                <p>Find information about Studio Ghibli</p>
                 <Link href="/films">
                   <Button
                     type="secondary"
                     className="bg-accent-foreground/15 hover:bg-accent-foreground/50 cursor-pointer rounded-full p-1 font-normal"
                   >
-                    <p className="text-ring pr-px pl-2">See films page</p>
+                    <p className="text-ring pr-px pl-2">Visit the Films page</p>{" "}
                     <div className="bg-accent-foreground rounded-full p-1.5">
                       <FilmIcon className="m-0 h-5 p-0" />
                     </div>
